@@ -2,9 +2,7 @@
 
 import { useState } from "react";
 import PageShell from "@/components/PageShell";
-import HomeContent, { ModeSelector } from "@/components/HomeContent";
-
-type Mode = "dynamic" | "horizontal" | "vertical";
+import HomeContent, { ModeSelector, type Mode } from "@/components/HomeContent";
 
 export default function HomePage() {
   const [mode, setMode] = useState<Mode>("dynamic");
