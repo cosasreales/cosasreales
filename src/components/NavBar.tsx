@@ -13,10 +13,11 @@ export default function NavBar() {
   const isActive = (p: string) =>
     p === "/" ? path === "/" : path?.startsWith(p);
 
-  const leftItems: Array<
-    | { key: keyof typeof labels; href: string; external?: boolean }
-    | { key: "lang"; href?: undefined }
-  > = [
+  const leftItems: Array<{
+    key: keyof typeof labels;
+    href: string;
+    external?: boolean;
+  }> = [
     { key: "nav_manifesto" as const, href: "/manifesto" },
     { key: "nav_work_personal" as const, href: "/lo-que-hago" },
     { key: "nav_work" as const, href: "/trabajo" },
