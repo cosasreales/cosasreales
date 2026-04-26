@@ -152,6 +152,131 @@ export default function LandingPage() {
     setStage("oracle");
   };
 
+  const downloadOracle = async () => {
+    const W = 1080;
+    const H = 1920;
+    const canvas = document.createElement("canvas");
+    canvas.width = W;
+    canvas.height = H;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const loadImg = (src: string) =>
+      new Promise<HTMLImageElement>((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+      });
+
+    try {
+      const img = await loadImg(pickedImage);
+      // Object-fit: cover
+      const scale = Math.max(W / img.width, H / img.height);
+      const dw = img.width * scale;
+      const dh = img.height * scale;
+      ctx.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+
+      // Vignette gradients matching the oracle
+      const gx = ctx.createLinearGradient(0, 0, W, 0);
+      gx.addColorStop(0, "rgba(0,0,0,0.35)");
+      gx.addColorStop(0.35, "rgba(0,0,0,0.15)");
+      gx.addColorStop(0.65, "rgba(0,0,0,0.15)");
+      gx.addColorStop(1, "rgba(0,0,0,0.35)");
+      ctx.fillStyle = gx;
+      ctx.fillRect(0, 0, W, H);
+      const gy = ctx.createLinearGradient(0, 0, 0, H);
+      gy.addColorStop(0, "rgba(0,0,0,0.15)");
+      gy.addColorStop(0.4, "rgba(0,0,0,0)");
+      gy.addColorStop(0.6, "rgba(0,0,0,0)");
+      gy.addColorStop(1, "rgba(0,0,0,0.25)");
+      ctx.fillStyle = gy;
+      ctx.fillRect(0, 0, W, H);
+
+      // Soft text shadow
+      const applyShadow = () => {
+        ctx.shadowColor = "rgba(0,0,0,0.45)";
+        ctx.shadowBlur = 24;
+        ctx.shadowOffsetY = 4;
+      };
+      const clearShadow = () => {
+        ctx.shadowColor = "transparent";
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetY = 0;
+      };
+
+      ctx.fillStyle = "#fff";
+      ctx.textBaseline = "alphabetic";
+
+      // ORÁCULO label rotated 90°, vertical on left
+      ctx.save();
+      ctx.translate(80, H / 2);
+      ctx.rotate(-Math.PI / 2);
+      applyShadow();
+      ctx.font = "700 28px Inter, system-ui, sans-serif";
+      ctx.textAlign = "center";
+      const labelText = lang === "es" ? "ORÁCULO" : "ORACLE";
+      const trackedLabel = labelText.split("").join("\u2009\u2009\u2009");
+      ctx.fillText(trackedLabel, 0, 0);
+      clearShadow();
+      ctx.restore();
+
+      // Question (right-aligned, wrap)
+      const fontSize = 96;
+      ctx.font = `600 ${fontSize}px Inter, system-ui, sans-serif`;
+      ctx.textAlign = "right";
+      const maxWidth = W - 160;
+      const words = pickedQuestion.split(" ");
+      const lines: string[] = [];
+      let line = "";
+      for (const w of words) {
+        const test = line ? line + " " + w : w;
+        if (ctx.measureText(test).width > maxWidth && line) {
+          lines.push(line);
+          line = w;
+        } else {
+          line = test;
+        }
+      }
+      if (line) lines.push(line);
+
+      applyShadow();
+      const lineHeight = fontSize * 1.05;
+      const totalH = lines.length * lineHeight;
+      let y = H / 2 - totalH / 2 + lineHeight * 0.85;
+      for (const l of lines) {
+        ctx.fillText(l, W - 80, y);
+        y += lineHeight;
+      }
+      clearShadow();
+
+      // Footer brand
+      ctx.font = "500 22px Inter, system-ui, sans-serif";
+      ctx.textAlign = "center";
+      ctx.globalAlpha = 0.85;
+      applyShadow();
+      ctx.fillText("COSAS REALES", W / 2, H - 80);
+      clearShadow();
+      ctx.globalAlpha = 1;
+
+      const blob = await new Promise<Blob | null>((res) =>
+        canvas.toBlob(res, "image/jpeg", 0.92),
+      );
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `oraculo-${Date.now()}.jpg`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      console.error("Oracle download failed", e);
+    }
+  };
+
   useEffect(() => {
     return smooth.on("change", (v) => {
       setAtHome(v > 0.98);
@@ -319,6 +444,19 @@ export default function LandingPage() {
               >
                 {lang === "es" ? "ORÁCULO" : "ORACLE"}
               </motion.span>
+
+              <motion.button
+                onClick={downloadOracle}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.1, duration: 0.8 }}
+                style={{ opacity: circleOpacity }}
+                aria-label={tr("landing_save_oracle")}
+                className="oracle-shadow absolute top-6 right-6 md:top-8 md:right-8 text-white/70 hover:text-white text-[10px] md:text-[11px] tracking-[0.25em] flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>{tr("landing_save_oracle")}</span>
+                <span aria-hidden>↓</span>
+              </motion.button>
 
               <motion.h1
                 initial={{ opacity: 0, x: 10 }}
