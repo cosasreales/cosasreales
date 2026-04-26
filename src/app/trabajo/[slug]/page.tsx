@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { use } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageShell from "@/components/PageShell";
@@ -164,28 +164,9 @@ export default function WorkDetailPage({
 }) {
   const { slug } = use(params);
   const { tr, lang } = useLang();
-  const [unlocked, setUnlocked] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    setUnlocked(sessionStorage.getItem("cr-work-unlocked") === "1");
-  }, []);
 
   const item = WORK.find((w) => w.slug === slug);
   if (!item) notFound();
-
-  if (unlocked === null) return <PageShell>{null}</PageShell>;
-  if (!unlocked) {
-    return (
-      <PageShell>
-        <div className="flex items-center justify-center min-h-[calc(100vh-12rem)] text-[12px]">
-          <Link href="/trabajo" className="underline">
-            {tr("back")}
-          </Link>
-        </div>
-      </PageShell>
-    );
-  }
 
   const blocks = WORK_CONTENT[slug] ?? [];
   const googleClass = item.isGoogle ? "font-google" : "";
