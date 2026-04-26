@@ -306,7 +306,7 @@ export default function LandingPage() {
                   draggable={false}
                   style={{
                     filter:
-                      "drop-shadow(0 4px 14px rgba(0,0,0,0.22)) drop-shadow(0 18px 48px rgba(0,0,0,0.15))",
+                      "drop-shadow(0 4px 16px rgba(0,0,0,0.14)) drop-shadow(0 22px 60px rgba(0,0,0,0.09))",
                   }}
                 />
               </motion.div>
@@ -333,13 +333,20 @@ export default function LandingPage() {
               <motion.button
                 onClick={() => progress.set(1)}
                 style={{ opacity: circleOpacity }}
-                className="oracle-shadow absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white text-[10px] tracking-[0.3em] cursor-pointer"
+                className="oracle-shadow absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-3 text-white text-[10px] tracking-[0.3em] cursor-pointer whitespace-nowrap"
               >
+                <motion.span
+                  animate={{ y: [0, 4, 0] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-[12px] leading-none"
+                >
+                  ↓
+                </motion.span>
                 <span>{tr("landing_scroll_to_enter")}</span>
                 <motion.span
-                  animate={{ y: [0, 6, 0] }}
+                  animate={{ y: [0, 4, 0] }}
                   transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-                  className="text-[14px] leading-none"
+                  className="text-[12px] leading-none"
                 >
                   ↓
                 </motion.span>
