@@ -56,9 +56,10 @@ export default function NavBar() {
                     href={item.href}
                     target={item.key === "nav_la_mesa" ? "_self" : "_blank"}
                     rel="noreferrer"
-                    className="underline-hover"
+                    className="underline-hover inline-flex items-center gap-1 text-black/45 hover:text-black"
                   >
                     {label}
+                    <span aria-hidden className="text-[0.85em]">↗</span>
                   </a>
                 </li>
               );

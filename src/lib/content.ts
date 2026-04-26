@@ -410,7 +410,7 @@ en Argentina y ella en otro país.
 
 Del ejercicio salió esta pieza audiovisual en el que cada
 cosa está encima de la otra, en la que cada recuerdo está
-bastante caótico pero distinguible al fín.`,
+bastante caótico pero distinguible al fin.`,
       en: `A boss I had proposed an exercise about our summer, though for me it was winter because I live in Argentina and she in another country.
 
 Out of the exercise came this audiovisual piece in which everything is on top of everything else, in which each memory is fairly chaotic but distinguishable in the end.`,
@@ -869,7 +869,7 @@ Esas son las paradojas de la verdad.
 Ustedes no saben si esto es real o ficción.
 Será lo que quieran que sean.
 
-De todas formas,bienvenidxs a Cosas Reales.
+De todas formas, bienvenidxs a Cosas Reales.
 
 Sam.`,
   en: `What if things were called

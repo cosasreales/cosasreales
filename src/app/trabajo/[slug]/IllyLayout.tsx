@@ -112,7 +112,7 @@ export default function IllyLayout({
       ),
     },
     wakeup: {
-      es: "Produjimos un cambio de rol: de pedir atención a provocar intensión.",
+      es: "Produjimos un cambio de rol: de pedir atención a provocar intención.",
       en: "We produced a role change: from asking for attention to provoking intention.",
     },
     pauseBody: {

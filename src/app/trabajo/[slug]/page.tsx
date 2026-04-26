@@ -1386,7 +1386,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       <>
         <p className="font-bold">[ SOCIAL &amp; DIGITAL ]</p>
         <p className="font-bold mt-4">
-          How do manage global campaigns for global brands for the biggest
+          How do you manage global campaigns for global brands for the biggest
           tournament in history?
         </p>
         <p className="mt-4">
@@ -1456,7 +1456,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           [ SEND THE BIGGEST CHEER TO YOUR TEAM ] was the prompt. The
           selected artworks are winning a trip to FWC26 and their drawings
           will be wrapped around the official Team Buses that take each
-          nation into all the stadium.
+          nation into all the stadiums.
         </p>
         <p className="mt-4">
           It&rsquo;s so wild to think that kids from all around the world saw

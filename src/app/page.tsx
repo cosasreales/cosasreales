@@ -233,19 +233,25 @@ export default function LandingPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="absolute bottom-14 left-1/2 -translate-x-1/2 flex items-center gap-12 text-[11px] tracking-[0.2em] text-black/70"
+              className="absolute bottom-14 left-1/2 -translate-x-1/2 flex items-end gap-12 text-[11px] tracking-[0.2em] text-black/70"
             >
               <button
                 onClick={() => onPickLanguage("es")}
-                className="underline underline-offset-[6px] hover:text-black"
+                className="flex flex-col items-center gap-1.5 hover:text-black"
               >
-                ESPAÑOL
+                <span className="text-[8px] tracking-[0.3em] text-black/40">
+                  SACAR ORÁCULO
+                </span>
+                <span className="underline underline-offset-[6px]">ESPAÑOL</span>
               </button>
               <button
                 onClick={() => onPickLanguage("en")}
-                className="underline underline-offset-[6px] hover:text-black"
+                className="flex flex-col items-center gap-1.5 hover:text-black"
               >
-                ENGLISH
+                <span className="text-[8px] tracking-[0.3em] text-black/40">
+                  GET ORACLE
+                </span>
+                <span className="underline underline-offset-[6px]">ENGLISH</span>
               </button>
             </motion.div>
           </motion.div>
@@ -324,12 +330,20 @@ export default function LandingPage() {
                 {pickedQuestion}
               </motion.h1>
 
-              <button
+              <motion.button
                 onClick={() => progress.set(1)}
-                className="oracle-shadow absolute bottom-10 left-1/2 -translate-x-1/2 text-white text-[11px] tracking-[0.3em] underline-hover cursor-pointer"
+                style={{ opacity: circleOpacity }}
+                className="oracle-shadow absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white text-[10px] tracking-[0.3em] cursor-pointer"
               >
-                {tr("landing_enter")}
-              </button>
+                <span>{tr("landing_scroll_to_enter")}</span>
+                <motion.span
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-[14px] leading-none"
+                >
+                  ↓
+                </motion.span>
+              </motion.button>
             </div>
 
             {/* Home pane */}
