@@ -166,8 +166,10 @@ export default function LandingPage() {
         const img = new Image();
         img.crossOrigin = "anonymous";
         img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = src;
+        img.onerror = () =>
+          reject(new Error(`Image load failed (CORS?): ${src}`));
+        const sep = src.includes("?") ? "&" : "?";
+        img.src = `${src}${sep}cors=1`;
       });
 
     try {
@@ -274,6 +276,11 @@ export default function LandingPage() {
       URL.revokeObjectURL(url);
     } catch (e) {
       console.error("Oracle download failed", e);
+      alert(
+        lang === "es"
+          ? "No se pudo guardar el oráculo. Probá refrescar la página."
+          : "Could not save the oracle. Try refreshing the page.",
+      );
     }
   };
 
