@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import NavBar from "@/components/NavBar";
 import HomeContent, { ModeSelector, type Mode } from "@/components/HomeContent";
 import { useLang, Lang } from "@/lib/i18n";
-import { LOGO, ORACLE_MARK, ORACLE_IMAGES, ORACLE_FAVORED } from "@/lib/content";
+import { LOGO, LOGO_WHITE, ORACLE_MARK, ORACLE_IMAGES, ORACLE_FAVORED } from "@/lib/content";
 
 const QUESTIONS_ES = [
   "¿CÓMO QUERÉS RECORDAR?",
@@ -253,14 +253,19 @@ export default function LandingPage() {
       }
       clearShadow();
 
-      // Footer brand
-      ctx.font = "500 22px Inter, system-ui, sans-serif";
-      ctx.textAlign = "center";
-      ctx.globalAlpha = 0.85;
-      applyShadow();
-      ctx.fillText("COSAS REALES", W / 2, H - 80);
-      clearShadow();
-      ctx.globalAlpha = 1;
+      // Footer logo
+      try {
+        const logo = await loadImg(LOGO_WHITE);
+        const logoW = 320;
+        const logoH = (logo.height / logo.width) * logoW;
+        applyShadow();
+        ctx.globalAlpha = 0.9;
+        ctx.drawImage(logo, (W - logoW) / 2, H - 110 - logoH, logoW, logoH);
+        ctx.globalAlpha = 1;
+        clearShadow();
+      } catch {
+        // logo optional — skip if it fails
+      }
 
       const blob = await new Promise<Blob | null>((res) =>
         canvas.toBlob(res, "image/jpeg", 0.92),
