@@ -25,11 +25,11 @@ export default function LaMesaPage() {
         title="La Mesa"
         className="flex-1 w-full block border-0"
       />
-      <div className="grid grid-cols-[auto_1fr_auto] items-center gap-6 px-4 py-1.5 border-t border-black/10 text-[10px] md:text-[11px] text-black">
+      <div className="relative flex items-center justify-between gap-6 px-4 py-1.5 border-t border-black/10 text-[10px] md:text-[11px] text-black">
         <a href="/" className="underline underline-offset-2 whitespace-nowrap">
           {BACK[lang]}
         </a>
-        <p className="text-center text-black/70 leading-snug">
+        <p className="absolute left-1/2 -translate-x-1/2 text-center text-black/70 leading-snug whitespace-nowrap pointer-events-none">
           {CREDIT[lang]}
         </p>
         <a
