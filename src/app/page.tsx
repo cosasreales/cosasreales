@@ -333,7 +333,7 @@ export default function LandingPage() {
               <motion.button
                 onClick={() => progress.set(1)}
                 style={{ opacity: circleOpacity }}
-                className="oracle-shadow absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white text-[10px] tracking-[0.3em] cursor-pointer"
+                className="oracle-shadow absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white text-[10px] tracking-[0.3em] cursor-pointer"
               >
                 <span>{tr("landing_scroll_to_enter")}</span>
                 <motion.span
