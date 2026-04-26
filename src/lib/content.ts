@@ -575,7 +575,7 @@ export const WORK: WorkItem[] = [
     year: "2025",
     client: "ILLY COFFEE",
     agency: "DEPT®",
-    role: { es: "SR. ART DIRECTOR", en: "SR. ART DIRECTOR" },
+    role: { es: "CREATIVE / ART DIRECTOR", en: "CREATIVE / ART DIRECTOR" },
     description: {
       es: "Playbook para reposicionar a illy como el café preferido de los estudiantes en universidades de USA.",
       en: "Playbook to reposition illy as the coffee of choice for US university students.",
@@ -587,7 +587,7 @@ export const WORK: WorkItem[] = [
     year: "2025",
     client: "TWITCH",
     agency: "DEPT®",
-    role: { es: "SR. ART DIRECTOR", en: "SR. ART DIRECTOR" },
+    role: { es: "CREATIVE / ART DIRECTOR", en: "CREATIVE / ART DIRECTOR" },
     description: {
       es: "Diseño narrativo de la presentación para reinventar el rol de Twitch en Social.",
       en: "Narrative design of the deck to reinvent Twitch's role on social.",
@@ -599,7 +599,7 @@ export const WORK: WorkItem[] = [
     year: "2024",
     client: "FIGMA",
     agency: "DEPT®",
-    role: { es: "SR. ART DIRECTOR", en: "SR. ART DIRECTOR" },
+    role: { es: "CREATIVE / ART DIRECTOR", en: "CREATIVE / ART DIRECTOR" },
     description: {
       es: "Meta-diseño para presentar una estrategia de comunicación y media.",
       en: "Meta-design for pitching a comms and media strategy.",
@@ -611,7 +611,7 @@ export const WORK: WorkItem[] = [
     year: "2024",
     client: "GOOGLE FOR STARTUPS",
     agency: "DEPT®",
-    role: { es: "SR. ART DIRECTOR", en: "SR. ART DIRECTOR" },
+    role: { es: "CREATIVE / ART DIRECTOR", en: "CREATIVE / ART DIRECTOR" },
     description: {
       es: "Serie documental y podcast para ayudar a los fundadores de Startups a conectar con los servicios de Google.",
       en: "Documentary series and podcast to help startup founders connect with Google's services.",

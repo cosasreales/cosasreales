@@ -1897,15 +1897,15 @@ function AudiLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         </div>
         <Img src={p21} style={pos(51.37, 5865.2, 1624.629, 406.157)} />
         {/* Top banners row */}
-        <Img src={p23} style={pos(51.37, 6291.7, 802.182, 99.171)} />
+        <Img src={p22} style={pos(51.37, 6291.7, 802.182, 99.171)} />
         <Img src={p24} style={pos(873.82, 6291.7, 802.182, 99.171)} />
         {/* Screenshot block left */}
-        <Img src={p22} style={pos(51.37, 6410.87, 919.359, 526.914)} />
+        <Img src={p23} style={pos(51.37, 6410.87, 919.359, 526.914)} />
         {/* Right cluster */}
-        <Img src={p28} style={pos(990.73, 6410.87, 685.27, 171.317)} />
-        <Img src={p25} style={pos(990.73, 6602.27, 205.581, 154.186)} />
-        <Img src={p26} style={pos(1216.4, 6602.27, 205.581, 154.186)} />
-        <Img src={p27} style={pos(990.73, 6776.54, 326.246, 54.374)} />
+        <Img src={p25} style={pos(990.73, 6410.87, 685.27, 171.317)} />
+        <Img src={p26} style={pos(990.73, 6602.27, 205.581, 154.186)} />
+        <Img src={p27} style={pos(1216.4, 6602.27, 205.581, 154.186)} />
+        <Img src={p28} style={pos(990.73, 6776.54, 326.246, 54.374)} />
       </div>
 
       {/* Closing line */}

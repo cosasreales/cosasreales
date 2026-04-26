@@ -1,67 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import { WORK } from "@/lib/content";
 import { useLang } from "@/lib/i18n";
 
-const PASSWORD = "ITPAYSTHEBILLS";
-const STORAGE_KEY = "cr-work-unlocked";
-
 const COLS = "grid-cols-[100px_1.4fr_1fr_3fr_1fr]";
 
 export default function WorkPage() {
-  const { tr, lang } = useLang();
-  const [unlocked, setUnlocked] = useState(false);
-  const [value, setValue] = useState("");
-  const [error, setError] = useState(false);
+  const { lang } = useLang();
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(STORAGE_KEY) === "1") setUnlocked(true);
-  }, []);
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (value.trim().toUpperCase() === PASSWORD) {
-      setUnlocked(true);
-      sessionStorage.setItem(STORAGE_KEY, "1");
-      setError(false);
-    } else {
-      setError(true);
-    }
-  };
-
-  if (!unlocked) {
-    return (
-      <PageShell>
-        <div className="flex items-center justify-center min-h-[calc(100vh-12rem)]">
-          <form onSubmit={submit} className="flex flex-col items-center gap-3">
-            <label className="text-[11px] tracking-[0.15em] text-brand/70">
-              {tr("password_label")}
-            </label>
-            <input
-              autoFocus
-              value={value}
-              onChange={(e) => {
-                setValue(e.target.value);
-                setError(false);
-              }}
-              className="border border-brand/30 px-3 py-1.5 w-[260px] text-[13px] outline-none focus:border-brand"
-              type="password"
-            />
-            {error && (
-              <span className="text-[11px] text-red-600">
-                {tr("wrong_password")}
-              </span>
-            )}
-          </form>
-        </div>
-      </PageShell>
-    );
-  }
 
   return (
     <PageShell>

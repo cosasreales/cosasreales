@@ -209,11 +209,16 @@ body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--tx);height
 #wl-skip{font-family:'DM Mono',monospace;font-size:10px;color:var(--txd);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
 #wl-skip:hover{color:var(--txm)}
 #wl-disclaimer{font-family:'DM Mono',monospace;font-size:10px;color:var(--txd);text-align:center;line-height:1.6;border:1px solid var(--bor);border-radius:3px;padding:8px 16px}
+#wl-method{font-family:'DM Mono',monospace;font-size:11px;color:var(--txm);text-align:center;line-height:1.6;max-width:520px;margin:0 auto 8px;font-style:italic}
 #wl-lock{margin-right:4px}
 #wl-logo{position:absolute;bottom:32px;left:50%;transform:translateX(-50%)}
 #wl-logo-svg{width:auto;height:80px;display:block}
 #wl-logo-svg path{fill:var(--ac)}
 @media(max-width:768px){#wl-steps{flex-direction:column;align-items:center;gap:30px}.wl-arrow{transform:rotate(90deg);margin-top:0}#wl-center{gap:50px}#wl-logo-svg{height:60px}}
+
+/* ── CUSTOM TOOLTIP ── */
+#lm-tip{position:fixed;z-index:9999;pointer-events:none;background:var(--tx);color:var(--bg);font-family:'DM Mono',monospace;font-size:10.5px;line-height:1.45;padding:6px 9px;border-radius:3px;max-width:240px;letter-spacing:.2px;opacity:0;transform:translateY(-4px);transition:opacity .18s ease, transform .18s ease;white-space:normal;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+#lm-tip.vis{opacity:.95;transform:translateY(0)}
 </style>
 </head>
 <body class="bright">
@@ -228,14 +233,14 @@ body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--tx);height
   </div>
   <div class="sep"></div>
   <div class="grp">
-    <span class="lbl">Vista</span>
+    <span class="lbl" data-tip="cómo ver las fotos: con su proporción original o todas con el mismo recorte">Vista</span>
     <div class="pill">
-      <button class="btn on" id="b-orig">original</button>
-      <button class="btn"    id="b-crop">crop</button>
+      <button class="btn on" id="b-orig" data-tip="mostrar cada foto con su proporción original">original</button>
+      <button class="btn"    id="b-crop" data-tip="forzar un mismo aspect ratio en todas las fotos para comparar composiciones">crop</button>
     </div>
   </div>
   <div class="grp" id="g-ratio" style="display:none">
-    <span class="lbl">Ratio</span>
+    <span class="lbl" data-tip="aspect ratio aplicado a todas las fotos en modo crop">Ratio</span>
     <select class="sel" id="ratio-sel">
       <option value="1:1">1:1</option>
       <option value="3:4">3:4</option>
@@ -249,22 +254,22 @@ body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--tx);height
   </div>
   <div class="sep"></div>
   <div class="grp">
-    <span class="lbl">Imán</span>
-    <button class="btn on" id="b-mag">● activo</button>
+    <span class="lbl" data-tip="cuando está activo, las fotos se 'pegan' al acercarlas formando dípticos, trípticos, etc. (atajo: I)">Imán</span>
+    <button class="btn on" id="b-mag" data-tip="activar / desactivar el imán entre fotos (atajo: I)">● activo</button>
   </div>
   <div class="sep"></div>
-  <button class="btn" id="b-azar">✦ azar</button>
+  <button class="btn" id="b-azar" data-tip="modos de exploración por azar: torneo, baraja y combinaciones — para descubrir pares y favoritas">✦ azar</button>
   <div id="tbright">
-    <div id="dots">
-      <div class="dot on" data-t="bright" title="Bright"></div>
-      <div class="dot"    data-t="light"  title="Light"></div>
-      <div class="dot"    data-t="dark"   title="Dark"></div>
-      <div class="dot"    data-t="pitch"  title="Pitch Black"></div>
+    <div id="dots" data-tip="cambiar el fondo de la mesa para ver las fotos según el contexto donde van a vivir">
+      <div class="dot on" data-t="bright" data-tip="fondo blanco — neutro"></div>
+      <div class="dot"    data-t="light"  data-tip="gris claro — menos brillo"></div>
+      <div class="dot"    data-t="dark"   data-tip="cálido oscuro — ideal para impresión"></div>
+      <div class="dot"    data-t="pitch"  data-tip="negro puro — máximo contraste"></div>
     </div>
     <div class="sep"></div>
-    <button class="btn" id="b-instr">instrucciones</button>
+    <button class="btn" id="b-instr" data-tip="volver a ver la pantalla de bienvenida con los pasos de uso">instrucciones</button>
     <div class="sep"></div>
-    <button class="btn" id="b-clear">limpiar mesa</button>
+    <button class="btn" id="b-clear" data-tip="sacar todas las fotos de la mesa (no se borran, vuelven a la barra lateral)">limpiar mesa</button>
   </div>
 </div>
 
@@ -284,9 +289,9 @@ body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--tx);height
       <div id="azp">
         <button id="azclose">cerrar ✕</button>
         <div class="aztabs">
-          <button class="aztab on"  data-m="torneo">torneo</button>
-          <button class="aztab"     data-m="baraja">baraja</button>
-          <button class="aztab"     data-m="combo">combinaciones</button>
+          <button class="aztab on"  data-m="torneo" data-tip="eliminación 1 vs 1: te va mostrando pares para que elijas tu favorita hasta que queda una ganadora">torneo</button>
+          <button class="aztab"     data-m="baraja" data-tip="una foto a la vez: decidís sí o no con flechas izquierda/derecha — rápido para curar muchas">baraja</button>
+          <button class="aztab"     data-m="combo" data-tip="una foto fija + candidatas alrededor: ideal para encontrar pares y dípticos que funcionan">combinaciones</button>
         </div>
         <div id="azt">
           <div id="tprog">—</div>
@@ -328,8 +333,8 @@ body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--tx);height
 
     <div id="sqt">
       <div id="sqh">
-        <span class="lbl">secuencia</span>
-        <button id="expbtn">exportar mesa →</button>
+        <span class="lbl" data-tip="orden final de tus fotos: armá acá la secuencia que querés exportar">secuencia</span>
+        <button id="expbtn" data-tip="descargar una imagen JPG con la mesa actual + un script para renombrar tus archivos en el orden de la secuencia">exportar mesa →</button>
       </div>
       <div id="sqstrip"><span id="sqhint">pasá el mouse sobre una foto → ＋ para agregar a la secuencia</span></div>
     </div>
@@ -358,6 +363,7 @@ body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--tx);height
 </div>
 
 <div id="toast"></div>
+<div id="lm-tip"></div>
 
 <!-- WELCOME OVERLAY -->
 <div id="welcome">
@@ -389,6 +395,7 @@ body{font-family:'DM Mono',monospace;background:var(--bg);color:var(--tx);height
       </div>
     </div>
     <div id="wl-bottom">
+      <div id="wl-method">La mesa de trabajo es una práctica de experimentación y asociación de fotografías que aprendí en Creadores de Imágenes.</div>
       <button id="wl-start">empezar →</button>
       <button id="wl-skip">no mostrar de nuevo</button>
       <div id="wl-disclaimer">
@@ -516,6 +523,8 @@ function applyStaticI18n(){
     if (ic) dz.appendChild(ic);
     dz.appendChild(document.createTextNode('folder or click'));
   }
+  const method = document.getElementById('wl-method');
+  if (method) method.textContent = 'The work-table is a practice of experimentation and image association that I learned at Creadores de Imágenes.';
   // welcome steps
   const steps = document.querySelectorAll('#wl-steps .wl-step');
   const stepsEN = [
@@ -1328,6 +1337,73 @@ function onWheel(e){
 }
 
 // ── WIRE UP ALL EVENTS (runs immediately, DOM already exists since script is at end of body) ──
+// ── CUSTOM TOOLTIPS ──
+const TIP_EN = {
+  "cómo ver las fotos: con su proporción original o todas con el mismo recorte": "how to view photos: original proportions or all with the same crop",
+  "mostrar cada foto con su proporción original": "show each photo with its original proportion",
+  "forzar un mismo aspect ratio en todas las fotos para comparar composiciones": "force the same aspect ratio on all photos to compare compositions",
+  "aspect ratio aplicado a todas las fotos en modo crop": "aspect ratio applied to all photos in crop mode",
+  "cuando está activo, las fotos se 'pegan' al acercarlas formando dípticos, trípticos, etc. (atajo: I)": "when active, photos 'snap' together when close, forming diptychs, triptychs, etc. (shortcut: I)",
+  "activar / desactivar el imán entre fotos (atajo: I)": "toggle magnet between photos (shortcut: I)",
+  "modos de exploración por azar: torneo, baraja y combinaciones — para descubrir pares y favoritas": "random exploration modes: tournament, shuffle and combinations — to discover pairs and favorites",
+  "cambiar el fondo de la mesa para ver las fotos según el contexto donde van a vivir": "change the table background to view photos according to the context where they'll live",
+  "fondo blanco — neutro": "white background — neutral",
+  "gris claro — menos brillo": "light gray — less glare",
+  "cálido oscuro — ideal para impresión": "warm dark — ideal for print",
+  "negro puro — máximo contraste": "pure black — maximum contrast",
+  "volver a ver la pantalla de bienvenida con los pasos de uso": "see the welcome screen with usage steps again",
+  "sacar todas las fotos de la mesa (no se borran, vuelven a la barra lateral)": "remove all photos from the table (they're not deleted, they return to the sidebar)",
+  "orden final de tus fotos: armá acá la secuencia que querés exportar": "final order of your photos: build here the sequence you want to export",
+  "descargar una imagen JPG con la mesa actual + un script para renombrar tus archivos en el orden de la secuencia": "download a JPG of the current table + a script to rename your files in sequence order",
+  "eliminación 1 vs 1: te va mostrando pares para que elijas tu favorita hasta que queda una ganadora": "1 vs 1 elimination: shows you pairs to pick your favorite until one winner remains",
+  "una foto a la vez: decidís sí o no con flechas izquierda/derecha — rápido para curar muchas": "one photo at a time: decide yes or no with left/right arrows — fast for curating many",
+  "una foto fija + candidatas alrededor: ideal para encontrar pares y dípticos que funcionan": "one anchor photo + candidates around it: ideal for finding pairs and working diptychs",
+};
+function tipText(s){ return LANG === 'en' && TIP_EN[s] ? TIP_EN[s] : s; }
+(function setupTips(){
+  const tip = document.getElementById('lm-tip');
+  if (!tip) return;
+  let current = null, hideTimer = 0;
+  function show(el){
+    const text = el.getAttribute('data-tip');
+    if (!text) return;
+    clearTimeout(hideTimer);
+    tip.textContent = tipText(text);
+    const r = el.getBoundingClientRect();
+    // measure after content set
+    tip.style.left = '0px'; tip.style.top = '0px';
+    tip.classList.add('vis');
+    const tr = tip.getBoundingClientRect();
+    let x = r.left + r.width/2 - tr.width/2;
+    let y = r.bottom + 8;
+    // clamp horizontally
+    x = Math.max(6, Math.min(window.innerWidth - tr.width - 6, x));
+    // flip above if no space below
+    if (y + tr.height + 6 > window.innerHeight) y = r.top - tr.height - 8;
+    tip.style.left = x + 'px';
+    tip.style.top = y + 'px';
+    current = el;
+  }
+  function hide(){
+    tip.classList.remove('vis');
+    current = null;
+  }
+  document.addEventListener('mouseover', e => {
+    const el = e.target.closest('[data-tip]');
+    if (!el || el === current) return;
+    show(el);
+  });
+  document.addEventListener('mouseout', e => {
+    const el = e.target.closest('[data-tip]');
+    if (!el) return;
+    const to = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('[data-tip]');
+    if (to === el) return;
+    hideTimer = setTimeout(hide, 60);
+  });
+  document.addEventListener('mousedown', hide);
+  window.addEventListener('blur', hide);
+})();
+
 (function init(){
   updateLogo('bright'); // set correct logo for default theme
   applyStaticI18n();

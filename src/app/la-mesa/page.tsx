@@ -5,48 +5,42 @@ import { useLang } from "@/lib/i18n";
 import MobileDisclaimer from "@/components/MobileDisclaimer";
 
 const CREDIT = {
-  es: {
-    pre: "La mesa de trabajo es una práctica que aprendí en ",
-    link: "Creadores de Imágenes",
-    post: ". Gracias CDI por ayudarme a encontrar mi forma de ver las cosas.",
-  },
-  en: {
-    pre: "The work-table is a practice I learned at ",
-    link: "Creadores de Imágenes",
-    post: ". Thanks CDI for helping me find my way of seeing things.",
-  },
+  es: "Gracias Creadores de Imágenes por ayudarnos a encontrar nuestra forma de mirar.",
+  en: "Thanks Creadores de Imágenes for helping us find our own way of seeing.",
 };
 
-const BACK = { es: "← volver a Cosas Reales", en: "← back to Cosas Reales" };
+const BACK = { es: "← Ir a Cosas Reales", en: "← Go to Cosas Reales" };
+const CDI = {
+  es: "Ir a Creadores de Imágenes →",
+  en: "Go to Creadores de Imágenes →",
+};
 
 export default function LaMesaPage() {
   const { lang } = useLang();
-  const c = CREDIT[lang];
   return (
     <div className="fixed inset-0 bg-white flex flex-col">
       <MobileDisclaimer variant="tool" />
-      <div className="flex items-center justify-between gap-4 px-4 py-2 border-b border-black/10 text-[11px] text-black">
-        <a href="/" className="underline-hover whitespace-nowrap">
-          {BACK[lang]}
-        </a>
-        <p className="text-right text-black/70 leading-snug">
-          {c.pre}
-          <a
-            href={LINKS.cdi}
-            target="_blank"
-            rel="noreferrer"
-            className="underline underline-offset-2"
-          >
-            {c.link}
-          </a>
-          {c.post}
-        </p>
-      </div>
       <iframe
         src={`/la-mesa/index.html?lang=${lang}`}
         title="La Mesa"
         className="flex-1 w-full block border-0"
       />
+      <div className="grid grid-cols-[auto_1fr_auto] items-center gap-6 px-4 py-1.5 border-t border-black/10 text-[10px] md:text-[11px] text-black">
+        <a href="/" className="underline underline-offset-2 whitespace-nowrap">
+          {BACK[lang]}
+        </a>
+        <p className="text-center text-black/70 leading-snug">
+          {CREDIT[lang]}
+        </p>
+        <a
+          href={LINKS.cdi}
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-2 whitespace-nowrap"
+        >
+          {CDI[lang]}
+        </a>
+      </div>
     </div>
   );
 }
