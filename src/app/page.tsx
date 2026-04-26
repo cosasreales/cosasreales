@@ -300,7 +300,7 @@ export default function LandingPage() {
                   draggable={false}
                   style={{
                     filter:
-                      "drop-shadow(0 2px 6px rgba(0,0,0,0.45)) drop-shadow(0 10px 28px rgba(0,0,0,0.3))",
+                      "drop-shadow(0 4px 14px rgba(0,0,0,0.22)) drop-shadow(0 18px 48px rgba(0,0,0,0.15))",
                   }}
                 />
               </motion.div>
