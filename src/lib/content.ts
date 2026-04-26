@@ -4,7 +4,7 @@
 export const CONTENT = "https://pub-4f187147d5944be3bd202f678456c5d4.r2.dev/cosas-reales-content";
 
 export const LOGO = `${CONTENT}/0_Logos/Cosas Reales - Signature Logo - Blue Filled.svg`;
-export const LOGO_WHITE = `${CONTENT}/0_Logos/Cosas Reales - Signature Logo - White Filled.png`;
+export const LOGO_WHITE = `${CONTENT}/0_Logos/Cosas Reales - Signature Logo Only - White.png`;
 export const LOGO_C_SOLA = `${CONTENT}/0_Logos/Cosas Reales - logo - C sola - white.png`;
 export const ORACLE_MARK = `${CONTENT}/0_Logos/${encodeURIComponent("Oráculo + Cosas Reales.png")}`;
 export const MANIFESTO_CIRCLE = {
