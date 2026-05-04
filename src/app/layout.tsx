@@ -22,8 +22,23 @@ const googleSans = Inter({
 export const metadata: Metadata = {
   title: "Cosas Reales — Samuel Martos",
   description:
-    "Samuel Martos — Visual Artist & Creative Director. Portfolio, projects, manifesto, archive.",
+    "Samuel Martos — Artist, Creative Consultant & Art Director. Portfolio, projects, manifesto, archive.",
   metadataBase: new URL("https://cosas-reales.com"),
+  openGraph: {
+    title: "Cosas Reales — Samuel Martos",
+    description:
+      "Samuel Martos — Artist, Creative Consultant & Art Director. Portfolio, projects, manifesto, archive.",
+    url: "https://cosas-reales.com",
+    siteName: "Cosas Reales",
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cosas Reales — Samuel Martos",
+    description:
+      "Samuel Martos — Artist, Creative Consultant & Art Director.",
+  },
 };
 
 export default function RootLayout({

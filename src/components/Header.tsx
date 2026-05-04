@@ -9,10 +9,10 @@ export default function Header({ headerSlot }: { headerSlot?: ReactNode }) {
   const { lang, setLang } = useLang();
 
   return (
-    <header className="pointer-events-none absolute top-0 left-0 right-0 z-40 flex items-end justify-between p-6 md:p-8">
+    <header className="pointer-events-none absolute top-0 left-0 right-0 z-40 flex items-end justify-between p-5 md:p-6 lg:p-8">
       <Link
         href="/home"
-        className="pointer-events-auto block w-[140px] md:w-[190px]"
+        className="pointer-events-auto block w-[120px] md:w-[150px] lg:w-[190px]"
         aria-label="Cosas Reales — home"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}

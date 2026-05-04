@@ -301,6 +301,51 @@ export default function LandingPage() {
     });
   }, [progress]);
 
+  // Pre-cache the dynamic-mode images while the user is on the oracle stage,
+  // so when they scroll into Home the trail renders instantly. Chunked + idle
+  // so it never competes with the visible oracle photo.
+  useEffect(() => {
+    if (stage !== "oracle") return;
+    const queue = ORACLE_IMAGES.filter((s) => s !== pickedImage);
+    let i = 0;
+    let cancelled = false;
+    const idle = (cb: () => void) => {
+      const w = window as Window &
+        typeof globalThis & {
+          requestIdleCallback?: (
+            cb: IdleRequestCallback,
+            opts?: { timeout: number },
+          ) => number;
+        };
+      if (typeof w.requestIdleCallback === "function") {
+        w.requestIdleCallback(cb, { timeout: 2000 });
+      } else {
+        setTimeout(cb, 200);
+      }
+    };
+    const preloadNext = () => {
+      if (cancelled || i >= queue.length) return;
+      const batch = queue.slice(i, i + 4);
+      i += 4;
+      let done = 0;
+      const onDone = () => {
+        done += 1;
+        if (done === batch.length) idle(preloadNext);
+      };
+      batch.forEach((src) => {
+        const img = new Image();
+        img.onload = onDone;
+        img.onerror = onDone;
+        img.src = src;
+      });
+    };
+    const t = window.setTimeout(() => idle(preloadNext), 1500);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(t);
+    };
+  }, [stage, pickedImage]);
+
   useEffect(() => {
     if (stage !== "oracle") return;
     const VH = () => window.innerHeight;

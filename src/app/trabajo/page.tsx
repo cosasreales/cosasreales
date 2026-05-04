@@ -6,7 +6,8 @@ import PageShell from "@/components/PageShell";
 import { WORK } from "@/lib/content";
 import { useLang } from "@/lib/i18n";
 
-const COLS = "grid-cols-[100px_1.4fr_1fr_3fr_1fr]";
+const COLS =
+  "grid-cols-[70px_1.4fr_1fr_2.2fr_1fr] lg:grid-cols-[100px_1.4fr_1fr_3fr_1fr]";
 
 export default function WorkPage() {
   const { lang } = useLang();
@@ -14,7 +15,7 @@ export default function WorkPage() {
 
   return (
     <PageShell>
-      <div className="px-10 md:px-[60px] pt-24 md:pt-32 pb-20">
+      <div className="px-6 md:px-10 lg:px-[60px] pt-40 md:pt-48 lg:pt-56 pb-32 lg:pb-40">
         <Header />
         <div className="border-t border-black/30">
           {WORK.map((item, i) => (

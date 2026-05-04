@@ -21,7 +21,7 @@ export default function HomeContent({
 }) {
   return (
     <div className="px-6 md:px-8 w-full">
-      <div className="relative h-[calc(100vh-14rem)] md:h-[calc(100vh-12rem)] w-full overflow-hidden">
+      <div className="relative h-[calc(100dvh-14rem)] md:h-[calc(100dvh-13rem)] lg:h-[calc(100dvh-12rem)] w-full overflow-hidden">
         {mode === "dynamic" && <DynamicLoop />}
         {mode === "horizontal" && <HorizontalLoop interactive={interactive} />}
       </div>

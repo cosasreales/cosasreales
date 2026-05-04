@@ -61,12 +61,12 @@ export default function AboutPage() {
         />
       </div>
 
-      <div className="absolute inset-0 z-10 px-10 md:px-[60px] pt-[160px] md:pt-[200px] pb-24 md:pb-28 overflow-hidden">
-        <div className="h-full max-w-[1180px] mx-auto grid grid-cols-12 gap-x-10">
+      <div className="relative lg:absolute lg:inset-0 z-10 px-6 md:px-10 lg:px-[60px] pt-[140px] md:pt-[180px] lg:pt-[200px] pb-24 md:pb-28 lg:overflow-hidden">
+        <div className="lg:h-full max-w-[1180px] mx-auto grid grid-cols-12 gap-x-6 md:gap-x-10 gap-y-10 lg:gap-y-0">
           {/* LEFT COLUMN: image + roles/exhibitions */}
           <div
             ref={leftColRef}
-            className="col-span-12 md:col-span-7 flex flex-col min-h-0 relative"
+            className="col-span-12 lg:col-span-7 flex flex-col min-h-0 relative"
           >
             <div className="relative w-full flex justify-center shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -129,10 +129,10 @@ export default function AboutPage() {
                   transition={{ duration: 0.45 }}
                   style={
                     rolesBottom !== null
-                      ? { bottom: `${rolesBottom}px` }
+                      ? { ["--roles-bottom" as string]: `${rolesBottom}px` }
                       : undefined
                   }
-                  className="absolute left-[10px] flex flex-col items-center text-brand z-20"
+                  className="mt-10 flex flex-col items-center text-brand z-20 lg:absolute lg:left-[10px] lg:mt-0 lg:[bottom:var(--roles-bottom)]"
                 >
                   <InlineFunGraphic size={110} />
                   <ul className="mt-[20px] font-bold tracking-[-0.04em] text-[14px] md:text-[15px] leading-[1.2] text-center">
@@ -146,7 +146,7 @@ export default function AboutPage() {
           </div>
 
           {/* RIGHT COLUMN: copy + side panel */}
-          <div className="col-span-12 md:col-span-5 md:max-w-[420px]">
+          <div className="col-span-12 lg:col-span-5 lg:max-w-[420px]">
             <h2 className="text-brand font-bold tracking-[-0.04em] text-[24px] md:text-[28px] leading-[1.1] mb-3">
               {tr("about_title")}
             </h2>

@@ -22,7 +22,7 @@ export default function ArchivePage() {
 
   return (
     <PageShell>
-      <div className="px-10 md:px-[60px] pt-24 md:pt-32 pb-20">
+      <div className="px-6 md:px-10 lg:px-[60px] pt-40 md:pt-48 lg:pt-56 pb-32 lg:pb-40">
         <Header />
         <div className="border-t border-black/30">
           {ARCHIVE.map((item, i) => {

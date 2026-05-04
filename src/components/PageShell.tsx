@@ -16,7 +16,7 @@ export default function PageShell({
   return (
     <div className={`relative min-h-screen w-full text-brand ${className}`}>
       <Header headerSlot={headerSlot} />
-      <main className="relative min-h-screen pt-24 pb-20">{children}</main>
+      <main className="relative min-h-screen">{children}</main>
       <NavBar />
     </div>
   );

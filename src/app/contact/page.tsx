@@ -101,7 +101,7 @@ export default function ContactPage() {
         )}
 
         {/* Foreground content. */}
-        <div className="absolute inset-0 px-10 md:px-[60px] pt-24 md:pt-32 pb-20 pointer-events-none">
+        <div className="absolute inset-0 px-6 md:px-10 lg:px-[60px] pt-40 md:pt-48 lg:pt-56 pb-32 lg:pb-40 pointer-events-none">
           <div className="h-full grid grid-cols-12 gap-x-8 items-center">
             {/* Text column */}
             <div className="col-span-12 md:col-span-6 flex items-center justify-center pointer-events-auto">
@@ -147,7 +147,7 @@ export default function ContactPage() {
             <div className="col-span-12 md:col-span-6 flex items-center justify-center pointer-events-auto">
               <div
                 ref={portraitRef}
-                className="relative aspect-square w-full max-w-[640px]"
+                className="relative aspect-square w-full max-w-[min(640px,calc(100dvh-420px))]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

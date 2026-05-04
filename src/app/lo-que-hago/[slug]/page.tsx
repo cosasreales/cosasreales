@@ -13,8 +13,6 @@ import {
   AnimatePresence,
   motion,
   useMotionValue,
-  useSpring,
-  useTransform,
 } from "framer-motion";
 import PageShell from "@/components/PageShell";
 import {
@@ -39,57 +37,58 @@ export default function PersonalProjectPage({
 
   return (
     <PageShell>
-      <div className="relative h-[calc(100vh-11rem)] px-10 md:px-[60px]">
-        {/* Title / year / subtitle — top-left */}
-        <div className="pt-10 md:pt-16 pr-[200px] md:pr-[300px]">
-          <h1
-            className="font-bold text-black tracking-[-0.04em] whitespace-pre-line"
-            style={{
-              fontSize: "clamp(36px, 4.6vw, 70px)",
-              lineHeight: 1,
-            }}
-          >
-            {project.title[lang]}
-          </h1>
-          <div
-            className="mt-6 font-normal text-black tracking-[-0.04em]"
-            style={{ fontSize: "clamp(22px, 2.1vw, 37px)", lineHeight: 1 }}
-          >
-            {project.year}
+      <div className="relative px-6 md:px-10 lg:px-[60px] pt-[180px] md:pt-[210px] lg:pt-[240px] pb-20 md:pb-24 lg:pb-28 h-[100dvh] flex flex-col">
+        {/* Header row: title (left) + thumbnail (right) — flow naturally, side by side */}
+        <div className="flex items-start justify-between gap-6 md:gap-10 shrink-0">
+          <div className="min-w-0 flex-1">
+            <h1
+              className="font-bold text-black tracking-[-0.04em] whitespace-pre-line"
+              style={{
+                fontSize: "clamp(32px, 4.2vw, 64px)",
+                lineHeight: 1,
+              }}
+            >
+              {project.title[lang]}
+            </h1>
+            <div
+              className="mt-5 font-normal text-black tracking-[-0.04em]"
+              style={{ fontSize: "clamp(20px, 1.9vw, 32px)", lineHeight: 1 }}
+            >
+              {project.year}
+            </div>
+            <div
+              className="mt-3 font-normal text-black tracking-[-0.04em] whitespace-pre-line"
+              style={{ fontSize: "clamp(13px, 1.15vw, 18px)", lineHeight: 1 }}
+            >
+              {project.subtitle[lang]}
+            </div>
           </div>
-          <div
-            className="mt-4 font-normal text-black tracking-[-0.04em] whitespace-pre-line"
-            style={{ fontSize: "clamp(14px, 1.25vw, 20px)", lineHeight: 1 }}
-          >
-            {project.subtitle[lang]}
+
+          <div className="shrink-0 w-[150px] md:w-[200px] lg:w-[220px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={coverSrc}
+              alt=""
+              className="w-full aspect-[3/2] object-cover select-none"
+              draggable={false}
+            />
+            <button
+              onClick={() => setStateB((v) => !v)}
+              className="mt-2 text-[13px] md:text-[15px] tracking-[-0.04em] text-black/60 underline underline-offset-4 block hover:text-black"
+            >
+              {stateB
+                ? lang === "es"
+                  ? "Volver"
+                  : "Go Back"
+                : lang === "es"
+                  ? "Leer Más"
+                  : "Read More"}
+            </button>
           </div>
         </div>
 
-        {/* Thumbnail + Leer Más / Volver — top-right, below the header strip */}
-        <div className="absolute top-[80px] md:top-[112px] right-10 md:right-[60px] w-[160px] md:w-[220px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={coverSrc}
-            alt=""
-            className="w-full aspect-[3/2] object-cover select-none"
-            draggable={false}
-          />
-          <button
-            onClick={() => setStateB((v) => !v)}
-            className="mt-2 text-[13px] md:text-[15px] tracking-[-0.04em] text-[color:var(--grey)] underline underline-offset-4 block hover:text-black"
-          >
-            {stateB
-              ? lang === "es"
-                ? "Volver"
-                : "Go Back"
-              : lang === "es"
-                ? "Leer Más"
-                : "Read More"}
-          </button>
-        </div>
-
-        {/* Main region — swap between image loop (A) and body text (B) */}
-        <div className="absolute left-0 right-0 bottom-8 md:bottom-12 top-[54%]">
+        {/* Main region — flows below the header row, fills remaining height */}
+        <div className="relative flex-1 min-h-0 mt-8 md:mt-10 lg:mt-12 -mx-6 md:-mx-10 lg:-mx-[60px]">
           <AnimatePresence mode="wait">
             {!stateB ? (
               <motion.div
@@ -109,7 +108,7 @@ export default function PersonalProjectPage({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.45 }}
-                className="absolute inset-0 px-10 md:px-[60px] overflow-y-auto pb-8"
+                className="absolute inset-0 px-6 md:px-10 lg:px-[60px] overflow-y-auto"
               >
                 <StateB project={project} />
               </motion.div>
@@ -160,59 +159,61 @@ function ImageLoop({
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
-  const smoothX = useSpring(x, { stiffness: 180, damping: 30, mass: 0.6 });
   const dragRef = useRef<{ startX: number; startVal: number } | null>(null);
-  const widthRef = useRef(0);
+  const halfRef = useRef(0);
   const idleRef = useRef<number>(0);
 
-  const renderX = useTransform(smoothX, (v) => {
-    // Wrap at half the total track width so the second half acts as a
-    // seamless mirror of the first.
-    const half = widthRef.current / 2;
+  const wrap = useCallback((v: number) => {
+    const half = halfRef.current;
     if (half <= 0) return v;
     let nv = v % half;
     if (nv > 0) nv -= half;
     return nv;
-  });
+  }, []);
 
   useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
     const measure = () => {
-      widthRef.current = trackRef.current?.scrollWidth ?? 0;
+      halfRef.current = el.scrollWidth / 2;
+      x.set(wrap(x.get()));
     };
     measure();
-    const t1 = setTimeout(measure, 400);
-    const t2 = setTimeout(measure, 1500);
-    window.addEventListener("resize", measure);
-    const imgs = trackRef.current?.querySelectorAll("img") ?? [];
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    const imgs = el.querySelectorAll("img");
     imgs.forEach((img) => {
       if (!img.complete) img.addEventListener("load", measure, { once: true });
     });
+    window.addEventListener("resize", measure);
     return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
+      ro.disconnect();
       window.removeEventListener("resize", measure);
     };
-  }, []);
+  }, [x, wrap]);
 
   const setX = useCallback(
     (v: number) => {
-      x.set(v);
+      x.set(wrap(v));
       idleRef.current = Date.now();
     },
-    [x],
+    [x, wrap],
   );
 
   useEffect(() => {
     let raf = 0;
-    const tick = () => {
+    let last = performance.now();
+    const tick = (t: number) => {
+      const dt = t - last;
+      last = t;
       if (Date.now() - idleRef.current > 2000) {
-        x.set(x.get() - 0.6);
+        x.set(wrap(x.get() - dt * 0.04));
       }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [x]);
+  }, [x, wrap]);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -252,7 +253,7 @@ function ImageLoop({
       <motion.div
         ref={trackRef}
         className="flex h-full items-center will-change-transform"
-        style={{ x: renderX }}
+        style={{ x }}
       >
         {list.map((file, i) => (
           <div

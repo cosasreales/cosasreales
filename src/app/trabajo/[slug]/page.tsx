@@ -174,15 +174,15 @@ export default function WorkDetailPage({
 
   return (
     <PageShell>
-      <div className={`px-10 md:px-[60px] pt-24 md:pt-32 pb-20 ${googleClass}`}>
-        <div className="data-head grid grid-cols-[100px_1.4fr_1fr_3fr_1fr] text-[11px] tracking-[0.1em] text-black/30 pb-3 border-b border-black/20">
+      <div className={`px-6 md:px-10 lg:px-[60px] pt-40 md:pt-48 lg:pt-56 pb-32 lg:pb-40 ${googleClass}`}>
+        <div className="data-head grid grid-cols-[70px_1.4fr_1fr_2.2fr_1fr] lg:grid-cols-[100px_1.4fr_1fr_3fr_1fr] text-[11px] tracking-[0.1em] text-black/30 pb-3 border-b border-black/20">
           <span>{tr("work_col_year")}</span>
           <span>{tr("work_col_client")}</span>
           <span>{tr("work_col_agency")}</span>
           <span>{tr("work_col_description")}</span>
           <span>{tr("work_col_role")}</span>
         </div>
-        <div className="data-row grid grid-cols-[100px_1.4fr_1fr_3fr_1fr] text-[13px] font-bold py-3 border-b border-black/10 text-black">
+        <div className="data-row grid grid-cols-[70px_1.4fr_1fr_2.2fr_1fr] lg:grid-cols-[100px_1.4fr_1fr_3fr_1fr] text-[13px] font-bold py-3 border-b border-black/10 text-black">
           <span>{item.year}</span>
           <span>{item.client}</span>
           <span>{item.agency}</span>
