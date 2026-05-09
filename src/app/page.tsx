@@ -549,7 +549,7 @@ export default function LandingPage() {
             </div>
 
             {/* Home pane */}
-            <div className="relative h-screen w-full bg-white pt-24 pb-20">
+            <div className="relative h-screen w-full bg-white">
               <HomeContent mode={mode} interactive={atHome} />
             </div>
           </motion.div>
