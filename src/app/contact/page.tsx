@@ -116,7 +116,7 @@ export default function ContactPage() {
                   {tr("contact_title")}
                 </h1>
                 <div
-                  className="mt-6 w-full text-brand font-bold tracking-[-0.04em] leading-none text-justify [text-align-last:justify] whitespace-nowrap"
+                  className="mt-6 w-full text-black font-bold tracking-[-0.04em] leading-none text-justify [text-align-last:justify] whitespace-nowrap"
                   style={{ fontSize: "clamp(13px, 1.15vw, 18px)" }}
                 >
                   {tr("contact_location")}
@@ -127,17 +127,19 @@ export default function ContactPage() {
                 >
                   <a
                     href={`mailto:${LINKS.email}`}
-                    className="underline underline-offset-4 hover:opacity-70"
+                    className="inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70"
                   >
                     EMAIL
+                    <span aria-hidden className="text-[0.85em]">↗</span>
                   </a>
                   <a
                     href={LINKS.instagram}
                     target="_blank"
                     rel="noreferrer"
-                    className="underline underline-offset-4 hover:opacity-70"
+                    className="inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70"
                   >
                     IG
+                    <span aria-hidden className="text-[0.85em]">↗</span>
                   </a>
                 </div>
               </div>
