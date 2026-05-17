@@ -867,7 +867,7 @@ Escribo este manifiesto en un Uber
 que en realidad está vestido de taxi.
 Esas son las paradojas de la verdad.
 Ustedes no saben si esto es real o ficción.
-Será lo que quieran que sean.
+Será lo que quieran que sea.
 
 De todas formas, bienvenidxs a Cosas Reales.
 
