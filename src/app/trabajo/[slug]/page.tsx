@@ -1346,11 +1346,50 @@ function GoogleStartupsLayout({
 }
 
 function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
-  const mainGif = workPath(item.folder, "01_FIFA_Design_System_Overview.gif");
-  const hyundaiPng = workPath(item.folder, "Hyundai.png");
-  const hyundaiGif = workPath(item.folder, "Hyundai.gif");
-  const partners = workPath(item.folder, "Partners.png");
-  const fifa4x5 = `${CONTENT}/8_Work /${encodeURIComponent(item.folder)}/${encodeURIComponent("NEW_STILL ASSETS")}/${encodeURIComponent("Fifa_4x5_01_Variant A.png")}`;
+  const wp  = (f: string) => workPath(item.folder, f);
+  const wpE = (f: string) =>
+    `${CONTENT}/8_Work /${encodeURIComponent(item.folder)}/Extras/${encodeURIComponent(f)}`;
+
+  // ─── Assets — numbered sequence (main folder) ───────────────────────────
+  const i01   = wp("01_FIFA_Design_System_Overview.gif");
+  const hero  = wp("3f5145273a52478490fdef097f7056c1.jpg");
+  const vRec  = wp("2_Video_Recaps.gif");
+  const hyDs  = wp("2_Hyundai.gif");
+  const dove  = wp("3_Dove.gif");
+  const boa   = wp("4_Bank of America.gif");
+  const yPl   = wp("5_Young PlayerFWC26_Aramco_YoungPlayerAward_Cubarsi_IG_FB_TikTok_4x5.png");
+  const abi1  = wp("6_ABI_MOTM_Messi.gif");
+  const mich  = wp("7_FWC26xMichelobUltra_SPOTM_4x5_Compilation_Branded.gif");
+  const abi2  = wp("8_ABI-vote reminders.png");
+  const cotm  = wp("9_COTM.mp4"); // mp4 (84 MB) instead of gif (200 MB)
+  const cot2  = wp("10_COTM_2.gif");
+  const aram  = wp("11_Aramco_Recap.png");
+  const sfor  = wp("12_salesforce.png");
+  const dAct  = wp("13_Digital Activations.png");
+  const cola  = wp("14_Coca-Cola_Recap.png");
+  const col2  = wp("15_Coca-Cola_stacks.gif");
+  const edit  = wp("16_Recap_Editorial.gif");
+  const mcd1  = wp("17_McDonald's - Compilation - Knockout Stage.gif");
+  const mcd2  = wp("18.gif");
+  const abn   = wp("19_Airbnb.gif");
+  const h20   = wp("20_Hyundai.png");
+  const h21   = wp("21.png");
+  const h22   = wp("22_Hyundai.png");
+  const h23   = wp("23_Hyundai.png");
+  const h24   = wp("24_Hyundai.png");
+  const h25   = wp("25_Hyundai.png");
+  const h26   = wp("26_Hyundai.png");
+  const resu  = wp("27_Results.gif");
+
+  // ─── Assets — Extras subfolder ──────────────────────────────────────────
+  const partners      = wpE("Partners.png");
+  const hyWinners     = wpE("Hyundai.png");
+  const hyContestGif  = wpE("Hyundai.gif");
+  const fifa4x5       = `${CONTENT}/8_Work /${encodeURIComponent(item.folder)}/Extras/${encodeURIComponent("NEW_STILL ASSETS")}/${encodeURIComponent("Fifa_4x5_01_Variant A.png")}`;
+
+  const es = lang === "es";
+
+  // ─── Copy ────────────────────────────────────────────────────────────────
 
   const intro = {
     es: (
@@ -1365,10 +1404,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           en FIFA.
         </p>
         <p className="mt-4">
-          Durante el último año hemos planeado múltiples workstreams para el
-          torneo más grande de la historia. Estamos entregando activaciones
-          digitales para todos los Commercial Partners de FIFA World Cup
-          2026™, que incluye +20 marcas.
+          Durante el último año planeamos múltiples workstreams para el
+          torneo más grande de la historia. Entregamos activaciones digitales
+          para todos los Commercial Partners de FIFA World Cup 2026™, que
+          incluye +20 marcas.
         </p>
         <p className="mt-4">
           Lideré parte del equipo creativo global y serví como conector entre
@@ -1394,10 +1433,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           at FIFA.
         </p>
         <p className="mt-4">
-          For the last year we&rsquo;ve been planning multiple workstreams
-          for the biggest tournament in history. We&rsquo;re delivering
-          digital activations for all Commercial Partners of FIFA World Cup
-          2026™, which includes +20 brands.
+          For the last year we planned multiple workstreams for the biggest
+          tournament in history. We delivered digital activations for all
+          Commercial Partners of FIFA World Cup 2026™, which includes +20
+          brands.
         </p>
         <p className="mt-4">
           I led part of the global creative team and served as a connector
@@ -1445,7 +1484,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       <>
         <p>
           We partnered with FIFA and Hyundai to create a global contest for
-          kids aged 5-12 from all around the world to submit a drawing that
+          kids aged 5–12 from all around the world to submit a drawing that
           represents their country.
         </p>
         <p className="mt-4">
@@ -1470,78 +1509,223 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
     ),
   };
 
-  const hyundaiHeader =
-    lang === "es" ? (
-      <>
-        Un highlight personal: Be There with Hyundai –{" "}
-        <a
-          href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/be-there-with-hyundai"
-          target="_blank"
-          rel="noreferrer"
-          className="underline"
-        >
-          Link
-        </a>
-      </>
-    ) : (
-      <>
-        A personal highlight: Be There with Hyundai –{" "}
-        <a
-          href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/be-there-with-hyundai"
-          target="_blank"
-          rel="noreferrer"
-          className="underline"
-        >
-          Link
-        </a>
-      </>
-    );
+  const caption1 = es
+    ? "Construyendo un framework escalable para el torneo más grande del mundo."
+    : "Building a scalable framework for the biggest tournament in the world.";
+  const caption2 = es ? "Los artistas ganadores 🥹" : "The winning artists 🥹";
 
-  const caption1 =
-    lang === "es"
-      ? "Construyendo un framework escalable para el torneo más grande del mundo."
-      : "Building a scalable framework for the biggest tournament in the world.";
-  const caption2 = lang === "es" ? "Los artistas ganadores 🥹" : "The winning artists 🥹";
-  const footer =
-    lang === "es"
-      ? "Más trabajo para todos estos Commercial Partners próximamente :)"
-      : "More work for all of these Commercial Partners coming soon :)";
+  const hyundaiHeader = (
+    <>
+      {es ? "Un highlight personal: " : "A personal highlight: "}
+      Be There with Hyundai –{" "}
+      <a
+        href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/be-there-with-hyundai"
+        target="_blank"
+        rel="noreferrer"
+        className="underline"
+      >
+        Link
+      </a>
+    </>
+  );
+
+  // ─── Render ──────────────────────────────────────────────────────────────
+
+  const Img = ({ src, className = "w-full h-auto" }: { src: string; className?: string }) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={src} alt="" className={className} />
+  );
+
+  const Label = ({ text }: { text: string }) => (
+    <p className="font-bold text-[11px] tracking-[0.08em] text-black/50">{text}</p>
+  );
 
   return (
-    <div className="mt-10 space-y-14 text-[13px] leading-[1.2] text-black">
-      <section className="grid grid-cols-12 gap-8">
-        <div className="col-span-12 md:col-span-4 space-y-0">{intro[lang]}</div>
+    <div className="mt-10 space-y-20 text-[13px] leading-[1.55] text-black">
+
+      {/* ── 1 · Intro + Design System ─────────────────────────────────── */}
+      <section className="grid grid-cols-12 gap-8 items-start">
+        <div className="col-span-12 md:col-span-4 space-y-0">
+          {intro[lang]}
+        </div>
         <div className="col-span-12 md:col-span-8 space-y-3">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={mainGif} alt="" className="w-full h-auto" />
-          <p className="font-bold max-w-[320px]">{caption1}</p>
+          <Img src={i01} />
+          <p className="font-bold">{caption1}</p>
         </div>
       </section>
 
+      {/* ── 2 · IT ALL STARTED WITH THEM ─────────────────────────────── */}
+      <section className="space-y-8">
+        <div className="grid grid-cols-12 gap-8 items-start">
+          <div className="col-span-12 md:col-span-4 space-y-4">
+            <h2
+              className="font-bold tracking-[-0.04em] leading-[1.05] whitespace-pre-line"
+              style={{ fontSize: "clamp(24px, 2.6vw, 40px)" }}
+            >
+              {es ? "TODO EMPEZÓ\nCON ELLOS" : "IT ALL STARTED\nWITH THEM"}
+            </h2>
+            <p>
+              {es
+                ? "39 días. 104 partidos. 180 países. El evento deportivo más grande en la historia de la humanidad — y estuvimos ahí para asegurarnos de que cada marca apareciera de la mejor manera posible."
+                : "39 days. 104 matches. 180 countries. The biggest sporting event in human history — and we were there to make sure every brand showed up in the best possible way."}
+            </p>
+          </div>
+          <div className="col-span-12 md:col-span-8">
+            <Img src={hero} />
+          </div>
+        </div>
+        <Img src={vRec} />
+        <Img src={partners} />
+      </section>
+
+      {/* ── 3 · Hyundai — design system ──────────────────────────────── */}
       <section className="space-y-4">
+        <Label text="[ HYUNDAI ]" />
+        <Img src={hyDs} />
+      </section>
+
+      {/* ── 4 · Dove ─────────────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ DOVE ]" />
+        <Img src={dove} />
+      </section>
+
+      {/* ── 5 · Bank of America ──────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ BANK OF AMERICA ]" />
+        <Img src={boa} />
+      </section>
+
+      {/* ── 6 · Aramco ───────────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ ARAMCO ]" />
+        <div className="flex gap-6 items-start">
+          <div style={{ flex: "1 1 0" }}>
+            <Img src={yPl} />
+          </div>
+          <div style={{ flex: "2.2 1 0" }}>
+            <Img src={aram} />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7 · ABI ──────────────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ ABI ]" />
+        <Img src={abi1} />
+        <Img src={abi2} />
+      </section>
+
+      {/* ── 8 · Michelob Ultra ───────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ MICHELOB ULTRA ]" />
+        <Img src={mich} />
+      </section>
+
+      {/* ── 9 · COTM ─────────────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <video
+          src={cotm}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-auto block"
+        />
+        <Img src={cot2} />
+      </section>
+
+      {/* ── 10 · Salesforce ──────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ SALESFORCE ]" />
+        <Img src={sfor} />
+        <Img src={dAct} />
+      </section>
+
+      {/* ── 11 · Coca-Cola ───────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ COCA-COLA ]" />
+        <Img src={cola} />
+        <Img src={col2} />
+      </section>
+
+      {/* ── 12 · Recap editorial ─────────────────────────────────────── */}
+      <section>
+        <Img src={edit} />
+      </section>
+
+      {/* ── 13 · McDonald's ──────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ MCDONALD'S ]" />
+        <Img src={mcd1} />
+        <Img src={mcd2} />
+      </section>
+
+      {/* ── 14 · Airbnb ──────────────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Label text="[ AIRBNB ]" />
+        <Img src={abn} />
+      </section>
+
+      {/* ── 15 · Hyundai — Be There contest ──────────────────────────── */}
+      <section className="space-y-8">
         <p className="font-bold">{hyundaiHeader}</p>
+
+        {/* Kick-off times / schedule graphic */}
+        <Img src={h20} />
+
+        {/* Three match-day graphics */}
+        <div className="grid grid-cols-3 gap-4">
+          <Img src={h22} />
+          <Img src={h23} />
+          <Img src={h21} />
+        </div>
+
+        {/* Contest announcement: GIF + 4:5 post + copy */}
         <div className="grid grid-cols-12 gap-8 items-start">
           <div className="col-span-12 md:col-span-7 grid grid-cols-[1.75fr_1fr] gap-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={hyundaiGif} alt="" className="w-full h-auto" />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={fifa4x5} alt="" className="w-full h-auto" />
+            <Img src={hyContestGif} />
+            <Img src={fifa4x5} />
           </div>
-          <div className="col-span-12 md:col-span-5">{hyundaiBody[lang]}</div>
+          <div className="col-span-12 md:col-span-5">
+            {hyundaiBody[lang]}
+          </div>
+        </div>
+
+        {/* Wider contest creative + stacked portrait pair */}
+        <div className="flex gap-4 items-start">
+          <div style={{ flex: "2 1 0" }}>
+            <Img src={h24} />
+          </div>
+          <div className="flex flex-col gap-4" style={{ flex: "1 1 0" }}>
+            <Img src={h25} />
+            <Img src={h26} />
+          </div>
         </div>
       </section>
 
+      {/* ── 16 · The winning artists ─────────────────────────────────── */}
       <section className="space-y-4">
         <p className="font-bold">{caption2}</p>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={hyundaiPng} alt="" className="w-full h-auto" />
+        <Img src={hyWinners} />
       </section>
 
-      <section className="space-y-6 pb-20">
-        <p className="font-bold text-center">{footer}</p>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={partners} alt="" className="w-full h-auto" />
+      {/* ── 17 · Results ─────────────────────────────────────────────── */}
+      <section className="space-y-8 pb-20">
+        <Img src={resu} />
+        <div className="flex flex-col gap-1">
+          <span
+            className="font-bold tracking-[-0.04em] leading-[1]"
+            style={{ fontSize: "clamp(48px, 6vw, 80px)" }}
+          >
+            +5.2{es ? " MIL MILLONES" : " BILLION"}
+          </span>
+          <span className="font-bold text-[13px] tracking-[0.06em]">
+            {es ? "IMPRESIONES" : "IMPRESSIONS"}
+          </span>
+        </div>
       </section>
+
     </div>
   );
 }
