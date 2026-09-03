@@ -1967,14 +1967,16 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <Img src={h24} />
         {/* 7.3 · h25 (2/3) + h26 (1/3) */}
         <div className="flex gap-4 items-start">
-          <div style={{ flex: "2 1 0" }}><Img src={h25} /></div>
+          <div style={{ flex: "2 1 0" }} className="flex flex-col gap-4">
+            <Img src={h25} />
+            <p className="font-bold">
+              {es
+                ? "El concepto de la campaña se extendió a múltiples canales alrededor del mundo, incluyendo cobertura mediática. Como los atletas viajaban en ellos a cada partido, generamos un alcance orgánico en medios de comunicación globales."
+                : "The concept from the campaign extended into multiple channels across the world, including media coverage, since athletes traveled in them to each match, we earned an organic reach across global news broadcasters."}
+            </p>
+          </div>
           <div style={{ flex: "1 1 0" }}><Img src={h26} /></div>
         </div>
-        <p className="font-bold">
-          {es
-            ? "El concepto de la campaña se extendió a múltiples canales alrededor del mundo, incluyendo cobertura mediática. Como los atletas viajaban en ellos a cada partido, generamos un alcance orgánico en medios de comunicación globales."
-            : "The concept from the campaign extended into multiple channels across the world, including media coverage, since athletes traveled in them to each match, we earned an organic reach across global news broadcasters."}
-        </p>
       </section>
 
       {/* ── 27 · Results ─────────────────────────────────────────────── */}
