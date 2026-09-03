@@ -1682,6 +1682,119 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
     <p className="font-bold text-[10px] tracking-[0.1em] text-black/40 uppercase">{text}</p>
   );
 
+  const ActivationList = ({ items }: { items: { name: string; href: string }[] }) => (
+    <ul className="space-y-1">
+      {items.map((a) => (
+        <li key={a.name} className="text-black/40">
+          {a.href ? (
+            <a href={a.href} target="_blank" rel="noreferrer" className="underline hover:text-black/70 transition-colors">{a.name}</a>
+          ) : (
+            <span className="underline">{a.name}</span>
+          )}
+        </li>
+      ))}
+    </ul>
+  );
+
+  const doveBody = {
+    en: (
+      <>
+        <p className="font-bold">A few highlights:</p>
+        <p className="mt-3">We convinced Dove Men+Care that their strongest link was not a player scoring a goal. It was how each of them showed up and proved what care for the beautiful game looks like.</p>
+        <p className="mt-3">It gave us <strong>very</strong> emotional moments that delivered <strong>top</strong> performance.</p>
+        <p className="mt-3">Shoutout to Messi and Vozinha 🫶</p>
+      </>
+    ),
+    es: (
+      <>
+        <p className="font-bold">Algunos highlights:</p>
+        <p className="mt-3">Convencimos a Dove Men+Care de que su vínculo más fuerte no era un jugador haciendo un gol. Era cómo cada uno de ellos mostraba lo que significa cuidar al fútbol.</p>
+        <p className="mt-3">Nos dio momentos <strong>muy</strong> emotivos que entregaron el <strong>mejor</strong> rendimiento.</p>
+        <p className="mt-3">Shoutout a Messi y Vozinha 🫶</p>
+      </>
+    ),
+  };
+
+  const boaCaption = es
+    ? "Con Bank of America celebramos +70 años de FIFA haciendo historia."
+    : "With Bank of America we celebrated +70 years of FIFA making history.";
+
+  const matchAwardsBody = {
+    en: (
+      <>
+        <p className="font-bold">Match Awards</p>
+        <p className="mt-3">We helped partners put their name on a real moment of recognition, match after match.</p>
+        <p className="mt-3">I&rsquo;m not good at math, but I&rsquo;m good at planning a workload that involves a lot of time-sensitive production + QA that actually makes the process not stressful at all.</p>
+        <p className="mt-3">We worked very closely with the Tech team to use AI to scale production by creating a few custom plugins that helped us create consistency with little to zero human error.</p>
+      </>
+    ),
+    es: (
+      <>
+        <p className="font-bold">Match Awards</p>
+        <p className="mt-3">Ayudamos a los socios a poner su nombre en un momento real de reconocimiento, partido tras partido.</p>
+        <p className="mt-3">No soy bueno en matemáticas, pero soy bueno en planificar una carga de trabajo que involucra mucha producción sensible al tiempo + QA que realmente hace que el proceso no sea estresante en absoluto.</p>
+        <p className="mt-3">Trabajamos muy de cerca con el equipo de Tech para usar IA y escalar la producción, creando plugins personalizados que nos ayudaron a crear consistencia con poco o cero error humano.</p>
+      </>
+    ),
+  };
+
+  const matchAwardsList: { name: string; href: string }[] = [
+    { name: "Aramco — Young Player Award", href: "" },
+    { name: "Michelob Ultra — Superior Player of the Match", href: "" },
+    { name: "Budweiser — Celebration of the Match", href: "" },
+    { name: "Lay’s — Fan of the Match", href: "" },
+    { name: "Hyundai — Goal of the Tournament", href: "" },
+  ];
+
+  const productActivationsBody = {
+    en: (
+      <>
+        <p className="font-bold">FIFA Product Activations</p>
+        <p className="mt-3">From FIFA Power Rankings to FIFA Fantasy to Bracket Challenges, we had the complex task to drive users and engagement across the FIFA ecosystem full of games and Fan-First products.</p>
+      </>
+    ),
+    es: (
+      <>
+        <p className="font-bold">Activaciones de Productos FIFA</p>
+        <p className="mt-3">Desde FIFA Power Rankings hasta FIFA Fantasy y Bracket Challenges, tuvimos la compleja tarea de llevar usuarios y engagement por el ecosistema FIFA lleno de juegos y productos Fan-First.</p>
+      </>
+    ),
+  };
+
+  const productActivationsList: { name: string; href: string }[] = [
+    { name: "Aramco — FIFA Power Rankings, FIFA Fantasy, Dream XI", href: "" },
+    { name: "adi Predictstreet — Bracket Challenge, Match Predictor", href: "" },
+    { name: "Lay’s — Chip Challenge", href: "" },
+    { name: "Coca-Cola — Match Alerts", href: "" },
+    { name: "Coca-Cola — FIFA Panini Collection", href: "" },
+    { name: "Bank of America — inclusión en FIFA Rewards", href: "" },
+    { name: "Globant — Match Momentum Graphics", href: "" },
+    { name: "Salesforce — Host Nations Performance", href: "" },
+  ];
+
+  const editorialBody = {
+    en: (
+      <>
+        <p className="font-bold">Editorial &amp; Storytelling</p>
+        <p className="mt-3">Not every partner had footage rights. Not every partner sponsored a FIFA product. So we found the creative link between what they offer and the tournament&rsquo;s world.</p>
+      </>
+    ),
+    es: (
+      <>
+        <p className="font-bold">Editorial &amp; Storytelling</p>
+        <p className="mt-3">No todos los socios tenían derechos de footage. No todos los socios patrocinaban un producto FIFA. Así que encontramos el vínculo creativo entre lo que ofrecen y el mundo del torneo.</p>
+      </>
+    ),
+  };
+
+  const editorialList: { name: string; href: string }[] = [
+    { name: "McDonald’s — Kick-off Times", href: "" },
+    { name: "Airbnb — Rivalries", href: "" },
+    { name: "Airbnb — Archetypes", href: "" },
+    { name: "Salesforce — Performance &amp; Thank You Graphics", href: "" },
+    { name: "Hyundai — Be There With Hyundai", href: "" },
+  ];
+
   return (
     <div className="mt-10 space-y-20 text-[13.8px] tracking-[-0.04em] leading-[1.55] text-black text-justify">
 
@@ -1734,20 +1847,32 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         </div>
       </section>
 
-      {/* ── 4 · Dove (~68% left-aligned) ─────────────────────────────── */}
-      <section>
-        <div className="w-[68%]"><Img src={dove} /></div>
+      {/* ── 4 · Dove — image left (68%), copy right ───────────────────── */}
+      <section className="grid grid-cols-12 gap-8 items-start">
+        <div className="col-span-12 md:col-span-8">
+          <Img src={dove} />
+        </div>
+        <div className="col-span-12 md:col-span-4">
+          {doveBody[lang]}
+        </div>
       </section>
 
-      {/* ── 5 · Bank of America (full width) ─────────────────────────── */}
-      <section>
+      {/* ── 5 · Bank of America — caption centered above, full width ──── */}
+      <section className="space-y-4">
+        <p className="text-center">{boaCaption}</p>
         <Img src={boa} />
       </section>
 
-      {/* ── 6+7 · Young Player + ABI MOTM side by side (right side) ──── */}
-      <section className="flex justify-end gap-4">
-        <div className="w-[24%]"><Img src={yPl} /></div>
-        <div className="w-[24%]"><Img src={abi1} /></div>
+      {/* ── 6+7 · Match Awards — copy left, Young Player + ABI right ──── */}
+      <section className="grid grid-cols-12 gap-8 items-start">
+        <div className="col-span-12 md:col-span-4 space-y-4">
+          {matchAwardsBody[lang]}
+          <ActivationList items={matchAwardsList} />
+        </div>
+        <div className="col-span-12 md:col-span-8 flex justify-end gap-4">
+          <div className="w-[calc(50%-8px)]"><Img src={yPl} /></div>
+          <div className="w-[calc(50%-8px)]"><Img src={abi1} /></div>
+        </div>
       </section>
 
       {/* ── 8+9 · Michelob Ultra (~31%) + ABI vote (~68%) side by side ── */}
@@ -1768,9 +1893,15 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <div className="w-[64%]"><Img src={cot2} /></div>
       </section>
 
-      {/* ── 12 · Aramco Recap (~70% right-aligned) ───────────────────── */}
-      <section className="flex justify-end">
-        <div className="w-[70%]"><Img src={aram} /></div>
+      {/* ── 12 · Product Activations — copy left, Aramco Recap right ──── */}
+      <section className="grid grid-cols-12 gap-8 items-start">
+        <div className="col-span-12 md:col-span-4 space-y-4">
+          {productActivationsBody[lang]}
+          <ActivationList items={productActivationsList} />
+        </div>
+        <div className="col-span-12 md:col-span-8">
+          <Img src={aram} />
+        </div>
       </section>
 
       {/* ── 13+14 · Salesforce + Digital Activations ─────────────────── */}
@@ -1789,9 +1920,15 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <div className="w-[31%] min-w-[200px]"><Img src={col2} /></div>
       </section>
 
-      {/* ── 17 · Recap Editorial (~68% right-aligned) ────────────────── */}
-      <section className="flex justify-end">
-        <div className="w-[68%]"><Img src={edit} /></div>
+      {/* ── 17 · Editorial — copy top-left, image left, list right ──────── */}
+      <section className="grid grid-cols-12 gap-8 items-start">
+        <div className="col-span-12 md:col-span-7 space-y-4">
+          {editorialBody[lang]}
+          <Img src={edit} />
+        </div>
+        <div className="col-span-12 md:col-span-5 flex flex-col justify-end min-h-full">
+          <ActivationList items={editorialList} />
+        </div>
       </section>
 
       {/* ── 18+19 · McDonald's staggered side by side ────────────────── */}
