@@ -1419,9 +1419,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           pensamos y algunos highlights de lo que creamos. Si quieren la
           historia completa, tomamos un café :)
         </p>
-        <p className="mt-4 space-y-0.5">
+        <p className="mt-4">
           <span className="block">[ +2000 piezas entregadas ]</span>
           <span className="block">[ +5.2 mil millones de impresiones ]</span>
+          <span className="block">[ +$400M en valor generado ]</span>
         </p>
       </>
     ),
@@ -1452,9 +1453,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           how we thought, and a few highlights of what we made. If you want
           the full story, let&rsquo;s grab a coffee :)
         </p>
-        <p className="mt-4 space-y-0.5">
+        <p className="mt-4">
           <span className="block">[ +2000 assets delivered ]</span>
           <span className="block">[ +5.2 billion impressions ]</span>
+          <span className="block">[ +$400M in partner value generated ]</span>
         </p>
       </>
     ),
@@ -1534,16 +1536,16 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
     ? "Muchos socios. Un solo pool de footage. Cada marca tuvo su momento único — todos del mismo highlight de 2 minutos."
     : "Many partners. One pool of footage. Each brand owned a unique moment — all from the same 2-minute highlight.";
 
-  const videoBrands = [
-    "Aramco — Daily Recap",
-    "Qatar Airways — Let It Fly",
-    "Kia — Inspiration Connects Us All",
-    "Visa — Tap In Goals",
-    "Verizon — Game Changers",
-    "Rexona — Built for the Moment",
-    "Dove Men+Care — What Care Looks Like",
-    "Hisense — Real Game Saving Moment",
-    "Bank of America — Making History",
+  const videoBrands: { name: string; href: string }[] = [
+    { name: "Aramco — Daily Recap", href: "" },
+    { name: "Qatar Airways — Let It Fly", href: "" },
+    { name: "Kia — Inspiration Connects Us All", href: "" },
+    { name: "Visa — Tap In Goals", href: "" },
+    { name: "Verizon — Game Changers", href: "" },
+    { name: "Rexona — Built for the Moment", href: "" },
+    { name: "Dove Men+Care — What Care Looks Like", href: "" },
+    { name: "Hisense — Real Game Saving Moment", href: "" },
+    { name: "Bank of America — Making History", href: "" },
   ];
 
   const hyundaiBody = {
@@ -1680,12 +1682,12 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
     <img src={src} alt="" className={className} />
   );
 
-  const Label = ({ text }: { text: string }) => (
-    <p className="font-bold text-[11px] tracking-[0.08em] text-black/50">{text}</p>
+  const SmallLabel = ({ text }: { text: string }) => (
+    <p className="font-bold text-[10px] tracking-[0.1em] text-black/40 uppercase">{text}</p>
   );
 
   return (
-    <div className="mt-10 space-y-20 text-[13px] leading-[1.55] text-black">
+    <div className="mt-10 space-y-20 text-[13.8px] tracking-[-0.04em] leading-[1.55] text-black text-justify">
 
       {/* ── 1 · Intro + Design System (01) ───────────────────────────── */}
       <section className="grid grid-cols-12 gap-8 items-start">
@@ -1715,14 +1717,18 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           </div>
         </div>
 
-        {/* ── Video & Match Footage (2) ── */}
+        {/* ── Video & Match Footage ── */}
         <div className="grid grid-cols-12 gap-8 items-start">
           <div className="col-span-12 md:col-span-4 space-y-3">
-            <Label text={`[ ${videoLabel} ]`} />
+            <SmallLabel text={videoLabel} />
             <p>{videoDesc}</p>
-            <ul className="mt-2 space-y-0.5 text-black/50">
+            <ul className="mt-2 space-y-1">
               {videoBrands.map((b) => (
-                <li key={b}>{b}</li>
+                <li key={b.name} className="text-black/40">
+                  {b.href ? (
+                    <a href={b.href} target="_blank" rel="noreferrer" className="underline hover:text-black/70 transition-colors">{b.name}</a>
+                  ) : b.name}
+                </li>
               ))}
             </ul>
           </div>
@@ -1732,88 +1738,75 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         </div>
       </section>
 
-      {/* ── 3 · Dove ─────────────────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ DOVE ]" />
-        <Img src={dove} />
+      {/* ── 4 · Dove (~68% left-aligned) ─────────────────────────────── */}
+      <section>
+        <div className="w-[68%]"><Img src={dove} /></div>
       </section>
 
-      {/* ── 4 · Bank of America ──────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ BANK OF AMERICA ]" />
+      {/* ── 5 · Bank of America (full width) ─────────────────────────── */}
+      <section>
         <Img src={boa} />
       </section>
 
-      {/* ── 5 · Aramco — Young Player ────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ ARAMCO ]" />
-        <Img src={yPl} />
+      {/* ── 6+7 · Young Player + ABI MOTM side by side (right side) ──── */}
+      <section className="flex justify-end gap-4">
+        <div className="w-[24%]"><Img src={yPl} /></div>
+        <div className="w-[24%]"><Img src={abi1} /></div>
       </section>
 
-      {/* ── 6 · ABI — MOTM Messi ─────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ ABI ]" />
-        <Img src={abi1} />
+      {/* ── 8+9 · Michelob Ultra (~31%) + ABI vote (~68%) side by side ── */}
+      <section className="grid grid-cols-12 gap-8 items-start">
+        <div className="col-span-12 md:col-span-4"><Img src={mich} /></div>
+        <div className="col-span-12 md:col-span-8"><Img src={abi2} /></div>
       </section>
 
-      {/* ── 7 · Michelob Ultra ───────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ MICHELOB ULTRA ]" />
-        <Img src={mich} />
+      {/* ── 10 · COTM video (~16% centered) ─────────────────────────── */}
+      <section className="flex justify-center">
+        <div className="w-[16%] min-w-[120px]">
+          <video src={cotm} autoPlay loop muted playsInline className="w-full h-auto block" />
+        </div>
       </section>
 
-      {/* ── 8 · ABI — Vote Reminders ─────────────────────────────────── */}
-      <section className="space-y-4">
-        <Img src={abi2} />
+      {/* ── 11 · COTM_2 (~64% centered) ──────────────────────────────── */}
+      <section className="flex justify-center">
+        <div className="w-[64%]"><Img src={cot2} /></div>
       </section>
 
-      {/* ── 9+10 · COTM ──────────────────────────────────────────────── */}
-      <section className="space-y-4">
-        <video
-          src={cotm}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-auto block"
-        />
-        <Img src={cot2} />
+      {/* ── 12 · Aramco Recap (~70% right-aligned) ───────────────────── */}
+      <section className="flex justify-end">
+        <div className="w-[70%]"><Img src={aram} /></div>
       </section>
 
-      {/* ── 11 · Aramco — Recap ──────────────────────────────────────── */}
+      {/* ── 13+14 · Salesforce + Digital Activations ─────────────────── */}
       <section className="space-y-4">
-        <Img src={aram} />
-      </section>
-
-      {/* ── 12+13 · Salesforce ───────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ SALESFORCE ]" />
         <Img src={sfor} />
         <Img src={dAct} />
       </section>
 
-      {/* ── 14+15 · Coca-Cola ────────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ COCA-COLA ]" />
-        <Img src={cola} />
-        <Img src={col2} />
-      </section>
-
-      {/* ── 16 · Recap Editorial ─────────────────────────────────────── */}
+      {/* ── 15 · Coca-Cola Recap (~86% centered) ─────────────────────── */}
       <section>
-        <Img src={edit} />
+        <div className="w-[86%] mx-auto"><Img src={cola} /></div>
       </section>
 
-      {/* ── 17+18 · McDonald's ───────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ MCDONALD'S ]" />
-        <Img src={mcd1} />
-        <Img src={mcd2} />
+      {/* ── 16 · Coca-Cola stacks (~31% centered) ────────────────────── */}
+      <section className="flex justify-center">
+        <div className="w-[31%] min-w-[200px]"><Img src={col2} /></div>
       </section>
 
-      {/* ── 19 · Airbnb ──────────────────────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ AIRBNB ]" />
+      {/* ── 17 · Recap Editorial (~68% right-aligned) ────────────────── */}
+      <section className="flex justify-end">
+        <div className="w-[68%]"><Img src={edit} /></div>
+      </section>
+
+      {/* ── 18+19 · McDonald's staggered side by side ────────────────── */}
+      <section className="grid grid-cols-12 gap-8 items-end">
+        <div className="col-span-5"><Img src={mcd1} /></div>
+        <div className="col-span-1" />
+        <div className="col-span-4"><Img src={mcd2} /></div>
+      </section>
+
+      {/* ── 20 · Airbnb (full width) ─────────────────────────────────── */}
+      <section>
         <Img src={abn} />
       </section>
 
@@ -1853,10 +1846,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       </section>
 
       {/* ── 27 · Results ─────────────────────────────────────────────── */}
-      <section className="space-y-8 pb-20">
+      <section className="space-y-10 pb-20">
         <h2
           className="font-bold tracking-[-0.04em] leading-[1.05]"
-          style={{ fontSize: "clamp(24px, 2.6vw, 40px)" }}
+          style={{ fontSize: "clamp(22px, 2.4vw, 38px)" }}
         >
           {es ? "+ MUCHO MÁS" : "+ SO MUCH MORE"}
         </h2>
@@ -1866,6 +1859,20 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           </div>
           <div className="col-span-12 md:col-span-4">
             {closingText[lang]}
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-8 border-t border-black/10 pt-8">
+          <div>
+            <SmallLabel text={es ? "PIEZAS ENTREGADAS" : "ASSETS DELIVERED"} />
+            <p className="font-bold mt-1 tracking-[-0.04em]" style={{ fontSize: "clamp(26px, 3vw, 46px)", lineHeight: 1 }}>+2000</p>
+          </div>
+          <div>
+            <SmallLabel text={es ? "IMPRESIONES" : "IMPRESSIONS"} />
+            <p className="font-bold mt-1 tracking-[-0.04em]" style={{ fontSize: "clamp(26px, 3vw, 46px)", lineHeight: 1 }}>+5.2B</p>
+          </div>
+          <div>
+            <SmallLabel text={es ? "EN VALOR GENERADO" : "IN PARTNER VALUE GENERATED"} />
+            <p className="font-bold mt-1 tracking-[-0.04em]" style={{ fontSize: "clamp(26px, 3vw, 46px)", lineHeight: 1 }}>+$400M</p>
           </div>
         </div>
       </section>
