@@ -1864,10 +1864,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       </section>
 
       {/* ── 6+7 · Match Awards — copy left, Young Player + ABI right ──── */}
-      <section className="grid grid-cols-12 gap-8 items-start">
-        <div className="col-span-12 md:col-span-4 space-y-4">
-          {matchAwardsBody[lang]}
-          <ActivationList items={matchAwardsList} />
+      <section className="grid grid-cols-12 gap-8">
+        <div className="col-span-12 md:col-span-4 flex flex-col">
+          <div className="space-y-4">{matchAwardsBody[lang]}</div>
+          <div className="mt-auto pt-6"><ActivationList items={matchAwardsList} /></div>
         </div>
         <div className="col-span-12 md:col-span-8 flex justify-end gap-4">
           <div className="w-[calc(50%-8px)]"><Img src={yPl} /></div>
@@ -1894,10 +1894,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       </section>
 
       {/* ── 12 · Product Activations — copy left, Aramco Recap right ──── */}
-      <section className="grid grid-cols-12 gap-8 items-start">
-        <div className="col-span-12 md:col-span-4 space-y-4">
-          {productActivationsBody[lang]}
-          <ActivationList items={productActivationsList} />
+      <section className="grid grid-cols-12 gap-8">
+        <div className="col-span-12 md:col-span-4 flex flex-col">
+          <div className="space-y-4">{productActivationsBody[lang]}</div>
+          <div className="mt-auto pt-6"><ActivationList items={productActivationsList} /></div>
         </div>
         <div className="col-span-12 md:col-span-8">
           <Img src={aram} />
@@ -1921,10 +1921,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       </section>
 
       {/* ── 17 · Editorial — copy+list left, image right ──────────────── */}
-      <section className="grid grid-cols-12 gap-8 items-start">
-        <div className="col-span-12 md:col-span-4 space-y-4">
-          {editorialBody[lang]}
-          <ActivationList items={editorialList} />
+      <section className="grid grid-cols-12 gap-8">
+        <div className="col-span-12 md:col-span-4 flex flex-col">
+          <div className="space-y-4">{editorialBody[lang]}</div>
+          <div className="mt-auto pt-6"><ActivationList items={editorialList} /></div>
         </div>
         <div className="col-span-12 md:col-span-8">
           <Img src={edit} />
@@ -1932,7 +1932,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       </section>
 
       {/* ── 18+19 · McDonald's staggered side by side ────────────────── */}
-      <section className="grid grid-cols-12 gap-8 items-end">
+      <section className="grid grid-cols-12 gap-8 items-center">
         <div className="col-span-5"><Img src={mcd1} /></div>
         <div className="col-span-1" />
         <div className="col-span-4"><Img src={mcd2} /></div>
