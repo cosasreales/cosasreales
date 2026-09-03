@@ -1354,7 +1354,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
   const i01   = wp("01_FIFA_Design_System_Overview.gif");
   const hero  = wp("3f5145273a52478490fdef097f7056c1.jpg");
   const vRec  = wp("2_Video_Recaps.gif");
-  const hyDs  = wp("2_Hyundai.gif");
+  // hyDs removed — file does not exist
   const dove  = wp("3_Dove.gif");
   const boa   = wp("4_Bank of America.gif");
   const yPl   = wp("5_Young PlayerFWC26_Aramco_YoungPlayerAward_Cubarsi_IG_FB_TikTok_4x5.png");
@@ -1378,7 +1378,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
   const h23   = wp("23_Hyundai.png");
   const h24   = wp("24_Hyundai.png");
   const h25   = wp("25_Hyundai.png");
-  const h26   = wp("26_Hyundai.png");
+  const h26   = wp("26__Hyundai.gif");
   const resu  = wp("27_Results.gif");
 
   // ─── Assets — Extras subfolder ──────────────────────────────────────────
@@ -1396,28 +1396,32 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       <>
         <p className="font-bold">[ SOCIAL &amp; DIGITAL ]</p>
         <p className="font-bold mt-4">
-          ¿Cómo se gestionan campañas globales para marcas globales en el
-          torneo más grande de la historia?
+          ¿Cómo se gestionan campañas globales para el torneo más grande de
+          la historia?
         </p>
         <p className="mt-4">
           Eso es lo que me propuse responder con mi equipo y nuestros socios
           en FIFA.
         </p>
         <p className="mt-4">
-          Durante el último año planeamos múltiples workstreams para el
-          torneo más grande de la historia. Entregamos activaciones digitales
-          para todos los Commercial Partners de FIFA World Cup 2026™, que
-          incluye +20 marcas.
+          Durante más de un año, planeamos y ejecutamos activaciones digitales
+          para 20+ socios comerciales de la Copa Mundial de la FIFA 2026™ en
+          cada canal, cada fecha, cada zona horaria.
         </p>
         <p className="mt-4">
-          Lideré parte del equipo creativo global y serví como conector entre
-          FIFA y todos los stakeholders para asegurar que sacáramos lo mejor
-          de la conexión de sus marcas con FWC26.
+          Lideré parte del equipo creativo global y actué como conector entre
+          FIFA y todos los stakeholders, asegurándome de que cada marca
+          encontrara su lugar real dentro del torneo.
         </p>
         <p className="mt-4">
-          Acá algunos highlights de lo que ya se hizo público.
-          <br />
-          Más por venir.
+          Como podrán imaginar, meter todo ese pensamiento y tiempo en una
+          página es imposible. Esto es lo que voy a hacer: mostrarles cómo
+          pensamos y algunos highlights de lo que creamos. Si quieren la
+          historia completa, tomamos un café :)
+        </p>
+        <p className="mt-4 space-y-0.5">
+          <span className="block">[ +2000 piezas entregadas ]</span>
+          <span className="block">[ +5.2 mil millones de impresiones ]</span>
         </p>
       </>
     ),
@@ -1425,109 +1429,249 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       <>
         <p className="font-bold">[ SOCIAL &amp; DIGITAL ]</p>
         <p className="font-bold mt-4">
-          How do you manage global campaigns for global brands for the biggest
-          tournament in history?
+          How do you manage global campaigns for the biggest tournament in
+          history?
         </p>
         <p className="mt-4">
           That&rsquo;s what I set out to answer with my team and our partners
           at FIFA.
         </p>
         <p className="mt-4">
-          For the last year we planned multiple workstreams for the biggest
-          tournament in history. We delivered digital activations for all
-          Commercial Partners of FIFA World Cup 2026™, which includes +20
-          brands.
+          For over a year, we planned and executed digital activations for
+          20+ Commercial Partners of FIFA World Cup 2026™ across every
+          channel, every matchday, every time zone.
         </p>
         <p className="mt-4">
           I led part of the global creative team and served as a connector
-          between FIFA and all stakeholders to ensure we&rsquo;d bring the
-          best out of their brands&rsquo; connection with FWC26.
+          between FIFA and all stakeholders, making sure each brand found its
+          real place inside the tournament.
         </p>
         <p className="mt-4">
-          Here&rsquo;s a few highlights of what&rsquo;s been public so far.
-          <br />
-          More to come.
+          As you can imagine, fitting all of that thinking and time into one
+          page is impossible. So here&rsquo;s what I&rsquo;ll do: show you
+          how we thought, and a few highlights of what we made. If you want
+          the full story, let&rsquo;s grab a coffee :)
+        </p>
+        <p className="mt-4 space-y-0.5">
+          <span className="block">[ +2000 assets delivered ]</span>
+          <span className="block">[ +5.2 billion impressions ]</span>
         </p>
       </>
     ),
   };
 
-  const hyundaiBody = {
+  const caption1 = {
     es: (
       <>
         <p>
-          Nos asociamos con FIFA y Hyundai para crear un concurso global para
-          chicos de 5 a 12 años de todo el mundo, que enviaran un dibujo que
-          representara a su país.
+          Construimos un framework escalable — un proceso, multiplicado por
+          20+ marcas, corriendo simultáneamente en un equipo global repartido
+          por América (el continente) y Europa.
         </p>
-        <p className="mt-4">
-          Tuve el honor de escribir un prompt simple para inspirar a una nueva
-          generación de artistas.
-        </p>
-        <p className="mt-4">
-          [ SEND THE BIGGEST CHEER TO YOUR TEAM ] fue el prompt. Las obras
-          seleccionadas se llevan un viaje al FWC26 y sus dibujos van a
-          envolver los Team Buses oficiales que llevan a cada nación a los
-          estadios.
-        </p>
-        <p className="mt-4">
-          Es una locura pensar que chicos de todo el mundo vieron esto y se
-          inspiraron para mandar un mensaje que representa su pasión por su
-          equipo, a partir de unas pocas palabras que escribí.
-          <br />
-          <br />
-          Bastante cool :)
+        <p className="mt-3">
+          Antes del torneo, nos dividimos y conquistamos. Durante el torneo,
+          nos convertimos en un solo equipo global con 18 horas de cobertura
+          diaria, pasando el trabajo de LATAM a EMEA y de vuelta a los
+          Estados Unidos.
         </p>
       </>
     ),
     en: (
       <>
         <p>
-          We partnered with FIFA and Hyundai to create a global contest for
-          kids aged 5–12 from all around the world to submit a drawing that
-          represents their country.
+          We built a scalable framework — one process, multiplied by 20+
+          brands, running simultaneously across a global team spread across
+          America (the continent) and Europe.
         </p>
-        <p className="mt-4">
-          I got the honor to write a simple prompt to inspire a new generation
-          of artists.
-        </p>
-        <p className="mt-4">
-          [ SEND THE BIGGEST CHEER TO YOUR TEAM ] was the prompt. The
-          selected artworks are winning a trip to FWC26 and their drawings
-          will be wrapped around the official Team Buses that take each
-          nation into all the stadiums.
-        </p>
-        <p className="mt-4">
-          It&rsquo;s so wild to think that kids from all around the world saw
-          this, and got inspired to send a message that represents their
-          passion for their teams, based on just a few words I wrote.
-          <br />
-          <br />
-          Pretty cool :)
+        <p className="mt-3">
+          Before the tournament, we divided and conquered. During the
+          tournament, we became one global team with 18 hours of daily
+          coverage, handing off work from LATAM to EMEA to the US and back.
         </p>
       </>
     ),
   };
 
-  const caption1 = es
-    ? "Construyendo un framework escalable para el torneo más grande del mundo."
-    : "Building a scalable framework for the biggest tournament in the world.";
-  const caption2 = es ? "Los artistas ganadores 🥹" : "The winning artists 🥹";
+  const startedBody = {
+    es: (
+      <>
+        <p>
+          Parte de nuestra tarea era entender la escala y las capas detrás de
+          cada socio — sus intereses, sus canales preferidos, su narrativa
+          para la Copa Mundial de la FIFA™ — para asegurarnos de que cada
+          marca estuviera alineada en tono sin que todas dijeran lo mismo.
+        </p>
+        <p className="mt-4">
+          Todos tenían prioridades distintas, todos estaban patrocinando
+          partes diferentes del ecosistema de la FIFA.
+        </p>
+        <p className="mt-4 font-bold">
+          Teníamos que encontrar nuestro camino. Cada. Vez.
+        </p>
+      </>
+    ),
+    en: (
+      <>
+        <p>
+          Part of our task was understanding the scale and the layers behind
+          each partner — their interests, their preferred channels, their FIFA
+          World Cup™ narrative — to make sure every brand was aligned in tone
+          without every brand saying the same thing.
+        </p>
+        <p className="mt-4">
+          Everyone had different priorities, everyone was sponsoring different
+          parts of the FIFA ecosystem.
+        </p>
+        <p className="mt-4 font-bold">
+          We had to find our way in. Every single time.
+        </p>
+      </>
+    ),
+  };
+
+  const videoLabel = es ? "VIDEO Y COBERTURA" : "VIDEO & MATCH FOOTAGE";
+  const videoDesc = es
+    ? "Muchos socios. Un solo pool de footage. Cada marca tuvo su momento único — todos del mismo highlight de 2 minutos."
+    : "Many partners. One pool of footage. Each brand owned a unique moment — all from the same 2-minute highlight.";
+
+  const videoBrands = [
+    "Aramco — Daily Recap",
+    "Qatar Airways — Let It Fly",
+    "Kia — Inspiration Connects Us All",
+    "Visa — Tap In Goals",
+    "Verizon — Game Changers",
+    "Rexona — Built for the Moment",
+    "Dove Men+Care — What Care Looks Like",
+    "Hisense — Real Game Saving Moment",
+    "Bank of America — Making History",
+  ];
+
+  const hyundaiBody = {
+    es: (
+      <>
+        <p>
+          Nos asociamos con FIFA y Hyundai para invitar a chicos de 5 a 12
+          años de todo el mundo a dibujar su país.
+        </p>
+        <p className="mt-4 font-bold">Un prompt. Infinitas respuestas.</p>
+        <p className="mt-4">
+          Estoy orgulloso de este. Verlo tomar vida fue la primera vez que
+          realmente sentí la escala de lo que estábamos construyendo.
+        </p>
+      </>
+    ),
+    en: (
+      <>
+        <p>
+          We partnered with FIFA and Hyundai to invite kids aged 5–12 from
+          around the world to draw their country.
+        </p>
+        <p className="mt-4 font-bold">One prompt. Infinite answers.</p>
+        <p className="mt-4">
+          I&rsquo;m proud of this one. Seeing it come to life was the first
+          time I truly felt the scale of what we were building.
+        </p>
+      </>
+    ),
+  };
 
   const hyundaiHeader = (
     <>
-      {es ? "Un highlight personal: " : "A personal highlight: "}
-      Be There with Hyundai –{" "}
+      {es ? "Un highlight personal — " : "A personal highlight — "}
       <a
         href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/be-there-with-hyundai"
         target="_blank"
         rel="noreferrer"
         className="underline"
       >
-        Link
+        Be There with Hyundai
       </a>
     </>
   );
+
+  const caption2 = es ? "Los artistas ganadores 🥹" : "The winning artists 🥹";
+
+  const closingText = {
+    es: (
+      <>
+        <p>
+          <strong>Lo hicimos sin un playbook preexistente.</strong> Sin reglas
+          preexistentes. En el anterior FIFA World Cup Qatar 2022™, la IA ni
+          siquiera existía. El mundo se mueve rápido, pero los humanos nos
+          adaptamos y navegamos este mundo con creatividad.
+        </p>
+        <p className="mt-4">
+          Lo fuimos descubriendo sobre la marcha. Teníamos planificación y
+          orientación, pero no podés tener un desglose paso a paso para algo
+          que nunca se hizo a esta escala. Simplemente tenés que ir.
+        </p>
+        <p className="mt-4">
+          Y en algún punto del proyecto más ambicioso de mi carrera, aprendí
+          las cosas más simples sobre ser un creativo: una buena idea llega
+          lejos, una mejor ejecución te da una audiencia feliz (y un cliente
+          feliz), y un proceso bien armado hace que todo sea divertido.
+        </p>
+        <p className="mt-4">
+          No importa qué tan grande o pequeño sea el proyecto, la estrella
+          del norte siempre tiene que ser la misma. Nunca tuve miedo de que
+          todo el mundo tuviera los ojos puestos en nosotros. Mientras yo
+          creyera en el trabajo, sabía que iba a rendir. Y rindió.
+        </p>
+        <p className="mt-4">
+          Logramos 5.2 mil millones de impresiones. Todavía no puedo procesar
+          cuánta gente vio esto. La mente humana no está preparada para
+          entender eso, y el cuerpo humano no está construido para soportar
+          esa presión. Supongo que por eso los humanos inventamos trabajar en
+          grupos, para poder escondernos dentro de ellos y construir algo más
+          grande que la suma de las partes.
+        </p>
+        <p className="mt-4">
+          Estoy vivo. El torneo terminó. Messi no ganó esta vez. Pero pude
+          celebrar muchos momentos gracias a él.
+        </p>
+      </>
+    ),
+    en: (
+      <>
+        <p>
+          <strong>We did this with no pre-existing playbook.</strong> No
+          pre-existing rules. In the previous FIFA World Cup Qatar 2022™, AI
+          wasn&rsquo;t even a thing. The world moves fast, but us humans
+          adapt and move through this world with creativity.
+        </p>
+        <p className="mt-4">
+          So we figured it out as we went. We had planning, and we had
+          guidance, but you can&rsquo;t have a step-by-step breakdown for
+          something that&rsquo;s never been done at this scale before. You
+          just have to go.
+        </p>
+        <p className="mt-4">
+          And somewhere in the most ambitious project of my career, I learned
+          the most simple things about being a creative: a good idea goes a
+          long way, a better execution gets you a happy audience (and client),
+          and a well-set-up process makes the whole thing fun.
+        </p>
+        <p className="mt-4">
+          No matter how big or small the project, the north star should always
+          be the same. I was never afraid that the whole world had their eyes
+          on us. As long as I believed in the work, I knew it was going to
+          pay off. And it did.
+        </p>
+        <p className="mt-4">
+          We drove 5.2 billion impressions. I still can&rsquo;t process how
+          many people saw this. The human mind is not prepared to understand
+          that, and the human body is not built to stand the pressure of that.
+          I guess that&rsquo;s why humans invented working as groups, so we
+          could hide inside them and build something bigger than the sum of
+          all parts.
+        </p>
+        <p className="mt-4">
+          I&rsquo;m alive. The tournament is over. Messi didn&rsquo;t win
+          this time. But I got to celebrate a lot of moments thanks to him.
+        </p>
+      </>
+    ),
+  };
 
   // ─── Render ──────────────────────────────────────────────────────────────
 
@@ -1543,18 +1687,18 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
   return (
     <div className="mt-10 space-y-20 text-[13px] leading-[1.55] text-black">
 
-      {/* ── 1 · Intro + Design System ─────────────────────────────────── */}
+      {/* ── 1 · Intro + Design System (01) ───────────────────────────── */}
       <section className="grid grid-cols-12 gap-8 items-start">
-        <div className="col-span-12 md:col-span-4 space-y-0">
+        <div className="col-span-12 md:col-span-4">
           {intro[lang]}
         </div>
-        <div className="col-span-12 md:col-span-8 space-y-3">
+        <div className="col-span-12 md:col-span-8 space-y-4">
           <Img src={i01} />
-          <p className="font-bold">{caption1}</p>
+          <div className="font-bold">{caption1[lang]}</div>
         </div>
       </section>
 
-      {/* ── 2 · IT ALL STARTED WITH THEM ─────────────────────────────── */}
+      {/* ── 2 · IT ALL STARTED WITH THEM + Partners ──────────────────── */}
       <section className="space-y-8">
         <div className="grid grid-cols-12 gap-8 items-start">
           <div className="col-span-12 md:col-span-4 space-y-4">
@@ -1564,65 +1708,66 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
             >
               {es ? "TODO EMPEZÓ\nCON ELLOS" : "IT ALL STARTED\nWITH THEM"}
             </h2>
-            <p>
-              {es
-                ? "39 días. 104 partidos. 180 países. El evento deportivo más grande en la historia de la humanidad — y estuvimos ahí para asegurarnos de que cada marca apareciera de la mejor manera posible."
-                : "39 days. 104 matches. 180 countries. The biggest sporting event in human history — and we were there to make sure every brand showed up in the best possible way."}
-            </p>
+            {startedBody[lang]}
           </div>
           <div className="col-span-12 md:col-span-8">
-            <Img src={hero} />
+            <Img src={partners} />
           </div>
         </div>
-        <Img src={vRec} />
-        <Img src={partners} />
+
+        {/* ── Video & Match Footage (2) ── */}
+        <div className="grid grid-cols-12 gap-8 items-start">
+          <div className="col-span-12 md:col-span-4 space-y-3">
+            <Label text={`[ ${videoLabel} ]`} />
+            <p>{videoDesc}</p>
+            <ul className="mt-2 space-y-0.5 text-black/50">
+              {videoBrands.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-span-12 md:col-span-8">
+            <Img src={vRec} />
+          </div>
+        </div>
       </section>
 
-      {/* ── 3 · Hyundai — design system ──────────────────────────────── */}
-      <section className="space-y-4">
-        <Label text="[ HYUNDAI ]" />
-        <Img src={hyDs} />
-      </section>
-
-      {/* ── 4 · Dove ─────────────────────────────────────────────────── */}
+      {/* ── 3 · Dove ─────────────────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ DOVE ]" />
         <Img src={dove} />
       </section>
 
-      {/* ── 5 · Bank of America ──────────────────────────────────────── */}
+      {/* ── 4 · Bank of America ──────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ BANK OF AMERICA ]" />
         <Img src={boa} />
       </section>
 
-      {/* ── 6 · Aramco ───────────────────────────────────────────────── */}
+      {/* ── 5 · Aramco — Young Player ────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ ARAMCO ]" />
-        <div className="flex gap-6 items-start">
-          <div style={{ flex: "1 1 0" }}>
-            <Img src={yPl} />
-          </div>
-          <div style={{ flex: "2.2 1 0" }}>
-            <Img src={aram} />
-          </div>
-        </div>
+        <Img src={yPl} />
       </section>
 
-      {/* ── 7 · ABI ──────────────────────────────────────────────────── */}
+      {/* ── 6 · ABI — MOTM Messi ─────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ ABI ]" />
         <Img src={abi1} />
-        <Img src={abi2} />
       </section>
 
-      {/* ── 8 · Michelob Ultra ───────────────────────────────────────── */}
+      {/* ── 7 · Michelob Ultra ───────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ MICHELOB ULTRA ]" />
         <Img src={mich} />
       </section>
 
-      {/* ── 9 · COTM ─────────────────────────────────────────────────── */}
+      {/* ── 8 · ABI — Vote Reminders ─────────────────────────────────── */}
+      <section className="space-y-4">
+        <Img src={abi2} />
+      </section>
+
+      {/* ── 9+10 · COTM ──────────────────────────────────────────────── */}
       <section className="space-y-4">
         <video
           src={cotm}
@@ -1635,53 +1780,52 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <Img src={cot2} />
       </section>
 
-      {/* ── 10 · Salesforce ──────────────────────────────────────────── */}
+      {/* ── 11 · Aramco — Recap ──────────────────────────────────────── */}
+      <section className="space-y-4">
+        <Img src={aram} />
+      </section>
+
+      {/* ── 12+13 · Salesforce ───────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ SALESFORCE ]" />
         <Img src={sfor} />
         <Img src={dAct} />
       </section>
 
-      {/* ── 11 · Coca-Cola ───────────────────────────────────────────── */}
+      {/* ── 14+15 · Coca-Cola ────────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ COCA-COLA ]" />
         <Img src={cola} />
         <Img src={col2} />
       </section>
 
-      {/* ── 12 · Recap editorial ─────────────────────────────────────── */}
+      {/* ── 16 · Recap Editorial ─────────────────────────────────────── */}
       <section>
         <Img src={edit} />
       </section>
 
-      {/* ── 13 · McDonald's ──────────────────────────────────────────── */}
+      {/* ── 17+18 · McDonald's ───────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ MCDONALD'S ]" />
         <Img src={mcd1} />
         <Img src={mcd2} />
       </section>
 
-      {/* ── 14 · Airbnb ──────────────────────────────────────────────── */}
+      {/* ── 19 · Airbnb ──────────────────────────────────────────────── */}
       <section className="space-y-4">
         <Label text="[ AIRBNB ]" />
         <Img src={abn} />
       </section>
 
-      {/* ── 15 · Hyundai — Be There contest ──────────────────────────── */}
+      {/* ── 20–26 · Hyundai — Be There contest ───────────────────────── */}
       <section className="space-y-8">
         <p className="font-bold">{hyundaiHeader}</p>
-
-        {/* Kick-off times / schedule graphic */}
         <Img src={h20} />
-
-        {/* Three match-day graphics */}
         <div className="grid grid-cols-3 gap-4">
           <Img src={h22} />
           <Img src={h23} />
           <Img src={h21} />
         </div>
-
-        {/* Contest announcement: GIF + 4:5 post + copy */}
         <div className="grid grid-cols-12 gap-8 items-start">
           <div className="col-span-12 md:col-span-7 grid grid-cols-[1.75fr_1fr] gap-4">
             <Img src={hyContestGif} />
@@ -1691,8 +1835,6 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
             {hyundaiBody[lang]}
           </div>
         </div>
-
-        {/* Wider contest creative + stacked portrait pair */}
         <div className="flex gap-4 items-start">
           <div style={{ flex: "2 1 0" }}>
             <Img src={h24} />
@@ -1704,25 +1846,27 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         </div>
       </section>
 
-      {/* ── 16 · The winning artists ─────────────────────────────────── */}
+      {/* ── Winning artists ──────────────────────────────────────────── */}
       <section className="space-y-4">
         <p className="font-bold">{caption2}</p>
         <Img src={hyWinners} />
       </section>
 
-      {/* ── 17 · Results ─────────────────────────────────────────────── */}
+      {/* ── 27 · Results ─────────────────────────────────────────────── */}
       <section className="space-y-8 pb-20">
-        <Img src={resu} />
-        <div className="flex flex-col gap-1">
-          <span
-            className="font-bold tracking-[-0.04em] leading-[1]"
-            style={{ fontSize: "clamp(48px, 6vw, 80px)" }}
-          >
-            +5.2{es ? " MIL MILLONES" : " BILLION"}
-          </span>
-          <span className="font-bold text-[13px] tracking-[0.06em]">
-            {es ? "IMPRESIONES" : "IMPRESSIONS"}
-          </span>
+        <h2
+          className="font-bold tracking-[-0.04em] leading-[1.05]"
+          style={{ fontSize: "clamp(24px, 2.6vw, 40px)" }}
+        >
+          {es ? "+ MUCHO MÁS" : "+ SO MUCH MORE"}
+        </h2>
+        <div className="grid grid-cols-12 gap-8 items-start">
+          <div className="col-span-12 md:col-span-8">
+            <Img src={resu} />
+          </div>
+          <div className="col-span-12 md:col-span-4">
+            {closingText[lang]}
+          </div>
         </div>
       </section>
 
