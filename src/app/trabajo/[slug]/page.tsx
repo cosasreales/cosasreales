@@ -1534,15 +1534,15 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
     : "Many partners. One pool of footage. Each brand owned a unique moment — all from the same 2-minute highlight.";
 
   const videoBrands: { name: string; href: string }[] = [
-    { name: "Aramco — Daily Recap", href: "" },
-    { name: "Qatar Airways — Let It Fly", href: "" },
+    { name: "Aramco — Daily Recap", href: "https://www.youtube.com/shorts/lh2srQ_p8FE" },
+    { name: "Qatar Airways — Let It Fly", href: "https://www.instagram.com/reels/Da5r0wdkp4k/" },
     { name: "Kia — Inspiration Connects Us All", href: "" },
-    { name: "Visa — Tap In Goals", href: "" },
-    { name: "Verizon — Game Changers", href: "" },
-    { name: "Rexona — Built for the Moment", href: "" },
-    { name: "Dove Men+Care — What Care Looks Like", href: "" },
-    { name: "Hisense — Real Game Saving Moment", href: "" },
-    { name: "Bank of America — Making History", href: "" },
+    { name: "Visa — Tap In Goals", href: "https://www.instagram.com/reels/DZsL88CkkZm/" },
+    { name: "Verizon — Game Changers", href: "https://www.instagram.com/reels/DaRn3R2lSpS/" },
+    { name: "Rexona — Pressure Plays", href: "https://www.instagram.com/p/DaL1PY3tcqW/" },
+    { name: "Dove Men+Care — What Care Looks Like", href: "https://www.instagram.com/reels/Dagq8s4iLN_/" },
+    { name: "Hisense — Real Game Saving Moment", href: "https://www.instagram.com/reels/DaXlSwkvrRi/" },
+    { name: "Bank of America — Making History", href: "https://www.instagram.com/reels/DZQGjCMCOvd/" },
   ];
 
   const hyundaiBody = {
@@ -1689,7 +1689,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           {a.href ? (
             <a href={a.href} target="_blank" rel="noreferrer" className="underline hover:text-black/70 transition-colors">{a.name}</a>
           ) : (
-            <span className="underline">{a.name}</span>
+            <span>{a.name}</span>
           )}
         </li>
       ))}
@@ -1739,11 +1739,11 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
   };
 
   const matchAwardsList: { name: string; href: string }[] = [
-    { name: "Aramco — Young Player Award", href: "" },
-    { name: "Michelob Ultra — Superior Player of the Match", href: "" },
-    { name: "Budweiser — Celebration of the Match", href: "" },
-    { name: "Lay’s — Fan of the Match", href: "" },
-    { name: "Hyundai — Goal of the Tournament", href: "" },
+    { name: "Aramco — Young Player Award", href: "https://www.instagram.com/p/Da_cfzloCzq/" },
+    { name: "Michelob Ultra — Superior Player of the Match", href: "https://www.tiktok.com/@fifaworldcup/video/7652200090269928726" },
+    { name: "Budweiser — Celebration of the Match", href: "https://www.instagram.com/reels/Da_lRleIQGn/" },
+    { name: "Lay’s — Fan of the Match", href: "https://www.instagram.com/reels/DbBehkzFKJb/" },
+    { name: "Hyundai — Goal of the Tournament", href: "https://www.instagram.com/reels/DbB4ISLCBxT/" },
   ];
 
   const productActivationsBody = {
@@ -1762,14 +1762,15 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
   };
 
   const productActivationsList: { name: string; href: string }[] = [
-    { name: "Aramco — FIFA Power Rankings, FIFA Fantasy, Dream XI", href: "" },
-    { name: "adi Predictstreet — Bracket Challenge, Match Predictor", href: "" },
-    { name: "Lay’s — Chip Challenge", href: "" },
+    { name: "Aramco — FIFA Power Rankings, FIFA Fantasy, Dream XI", href: "https://sponsorships.aramco.com/fifa/fifa-wc26/" },
+    { name: "adi Predictstreet — Bracket Challenge", href: "https://www.instagram.com/p/DY7PwPfnRv0/" },
+    { name: "adi Predictstreet — Match Predictor", href: "https://www.instagram.com/p/Da6n7kGHHbk/" },
+    { name: "Lay’s — Chip Challenge", href: "https://play.fifa.com/chip-challenge/" },
     { name: "Coca-Cola — Match Alerts", href: "" },
-    { name: "Coca-Cola — FIFA Panini Collection", href: "" },
+    { name: "Coca-Cola — FIFA Panini Collection", href: "https://www.instagram.com/p/DaLtOF3HBF8/" },
     { name: "Bank of America — inclusión en FIFA Rewards", href: "" },
-    { name: "Globant — Match Momentum Graphics", href: "" },
-    { name: "Salesforce — Host Nations Performance", href: "" },
+    { name: "Globant — Match Momentum Graphics", href: "https://www.instagram.com/p/DbBuhigHL0w/" },
+    { name: "Salesforce — Host Nations Performance", href: "https://www.instagram.com/p/DaYEsNwj0Pu/?hl=en" },
   ];
 
   const editorialBody = {
@@ -1788,11 +1789,11 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
   };
 
   const editorialList: { name: string; href: string }[] = [
-    { name: "McDonald’s — Kick-off Times", href: "" },
-    { name: "Airbnb — Rivalries", href: "" },
-    { name: "Airbnb — Archetypes", href: "" },
-    { name: "Salesforce — Performance &amp; Thank You Graphics", href: "" },
-    { name: "Hyundai — Be There With Hyundai", href: "" },
+    { name: "McDonald’s — Kick-off Times", href: "https://www.instagram.com/p/Da91XnxxBP3/" },
+    { name: "Airbnb — Rivalries", href: "https://www.instagram.com/p/DZpJ8f0vRGj/" },
+    { name: "Airbnb — Archetypes", href: "https://www.instagram.com/p/DYCghU0jTyV/" },
+    { name: "Salesforce — Performance & Thank You Graphics", href: "https://www.instagram.com/p/DaYEsNwj0Pu/?hl=en" },
+    { name: "Hyundai — Be There With Hyundai", href: "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/be-there-with-hyundai" },
   ];
 
   return (
