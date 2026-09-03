@@ -1920,14 +1920,14 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <div className="w-[31%] min-w-[200px]"><Img src={col2} /></div>
       </section>
 
-      {/* ── 17 · Editorial — copy top-left, image left, list right ──────── */}
+      {/* ── 17 · Editorial — copy+list left, image right ──────────────── */}
       <section className="grid grid-cols-12 gap-8 items-start">
-        <div className="col-span-12 md:col-span-7 space-y-4">
+        <div className="col-span-12 md:col-span-4 space-y-4">
           {editorialBody[lang]}
-          <Img src={edit} />
-        </div>
-        <div className="col-span-12 md:col-span-5 flex flex-col justify-end min-h-full">
           <ActivationList items={editorialList} />
+        </div>
+        <div className="col-span-12 md:col-span-8">
+          <Img src={edit} />
         </div>
       </section>
 
@@ -1945,21 +1945,26 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
 
       {/* ── 21–27 · Hyundai — Be There contest ───────────────────────── */}
       <section className="space-y-8">
-        <p className="font-bold">{hyundaiHeader}</p>
-        <Img src={h20} />
+        {/* 7_ intro: copy left, h20 right */}
+        <div className="grid grid-cols-12 gap-8 items-start">
+          <div className="col-span-12 md:col-span-4 space-y-4">
+            <p className="font-bold">{hyundaiHeader}</p>
+            {hyundaiBody[lang]}
+          </div>
+          <div className="col-span-12 md:col-span-8 space-y-4">
+            <Img src={h20} />
+            <p>{es ? "Le pedimos a chicos de 48 países que enviaran su mayor grito a su equipo. Y lo hicieron 🥹" : "We asked kids from 48 countries to send their biggest cheer to their team. And they did 🥹"}</p>
+          </div>
+        </div>
+        {/* 7.1 · 3-image grid */}
         <div className="grid grid-cols-3 gap-4">
           <Img src={h21} />
           <Img src={h22} />
           <Img src={h23} />
         </div>
-        <div className="grid grid-cols-12 gap-8 items-start">
-          <div className="col-span-12 md:col-span-5 space-y-4">
-            {hyundaiBody[lang]}
-          </div>
-          <div className="col-span-12 md:col-span-7">
-            <Img src={h24} />
-          </div>
-        </div>
+        {/* 7.2 · h24 full width */}
+        <Img src={h24} />
+        {/* 7.3 · h25 (2/3) + h26 (1/3) */}
         <div className="flex gap-4 items-start">
           <div style={{ flex: "2 1 0" }}><Img src={h25} /></div>
           <div style={{ flex: "1 1 0" }}><Img src={h26} /></div>
@@ -1980,20 +1985,6 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           </div>
           <div className="col-span-12 md:col-span-4">
             {closingText[lang]}
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-8 border-t border-black/10 pt-8">
-          <div>
-            <SmallLabel text={es ? "PIEZAS ENTREGADAS" : "ASSETS DELIVERED"} />
-            <p className="font-bold mt-1 tracking-[-0.04em]" style={{ fontSize: "clamp(26px, 3vw, 46px)", lineHeight: 1 }}>+2000</p>
-          </div>
-          <div>
-            <SmallLabel text={es ? "IMPRESIONES" : "IMPRESSIONS"} />
-            <p className="font-bold mt-1 tracking-[-0.04em]" style={{ fontSize: "clamp(26px, 3vw, 46px)", lineHeight: 1 }}>+5.2B</p>
-          </div>
-          <div>
-            <SmallLabel text={es ? "EN VALOR GENERADO" : "IN PARTNER VALUE GENERATED"} />
-            <p className="font-bold mt-1 tracking-[-0.04em]" style={{ fontSize: "clamp(26px, 3vw, 46px)", lineHeight: 1 }}>+$400M</p>
           </div>
         </div>
       </section>
