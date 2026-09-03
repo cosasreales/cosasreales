@@ -1505,7 +1505,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           partes diferentes del ecosistema de la FIFA.
         </p>
         <p className="mt-4 font-bold">
-          Teníamos que encontrar nuestro camino. Cada. Vez.
+          Teníamos que encontrar nuestro camino. Cada vez.
         </p>
       </>
     ),
@@ -1733,7 +1733,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <p className="font-bold">Match Awards</p>
         <p className="mt-3">Ayudamos a los socios a poner su nombre en un momento real de reconocimiento, partido tras partido.</p>
         <p className="mt-3">No soy bueno en matemáticas, pero soy bueno en planificar una carga de trabajo que involucra mucha producción sensible al tiempo + QA que realmente hace que el proceso no sea estresante en absoluto.</p>
-        <p className="mt-3">Trabajamos muy de cerca con el equipo de Tech para usar IA y escalar la producción, creando plugins personalizados que nos ayudaron a crear consistencia con poco o cero error humano.</p>
+        <p className="mt-3">Trabajamos muy de cerca con el equipo de Tech para usar IA y escalar la producción, creando plugins personalizados que nos ayudaron a crear consistencia con cero margen de error.</p>
       </>
     ),
   };
@@ -1956,7 +1956,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           </div>
           <div className="col-span-12 md:col-span-8 space-y-4">
             <Img src={h20} />
-            <p>{es ? "Le pedimos a chicos de 48 países que enviaran su mayor grito a su equipo. Y lo hicieron 🥹" : "We asked kids from 48 countries to send their biggest cheer to their team. And they did 🥹"}</p>
+            <p>{es ? "Le pedimos a chicos de 48 países que enviaran su grito de aliento a su equipo. Y lo hicieron 🥹" : "We asked kids from 48 countries to send their biggest cheer to their team. And they did 🥹"}</p>
           </div>
         </div>
         {/* 7.1 · h21, then h22 full width, then h23 */}
@@ -1970,6 +1970,11 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
           <div style={{ flex: "2 1 0" }}><Img src={h25} /></div>
           <div style={{ flex: "1 1 0" }}><Img src={h26} /></div>
         </div>
+        <p className="font-bold">
+          {es
+            ? "El concepto de la campaña se extendió a múltiples canales alrededor del mundo, incluyendo cobertura mediática. Como los atletas viajaban en ellos a cada partido, generamos un alcance orgánico en medios de comunicación globales."
+            : "The concept from the campaign extended into multiple channels across the world, including media coverage, since athletes traveled in them to each match, we earned an organic reach across global news broadcasters."}
+        </p>
       </section>
 
       {/* ── 27 · Results ─────────────────────────────────────────────── */}
