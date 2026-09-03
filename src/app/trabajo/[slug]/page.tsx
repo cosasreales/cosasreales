@@ -1827,11 +1827,14 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         </div>
 
         {/* ── Video & Match Footage ── */}
-        <div className="grid grid-cols-12 gap-8 items-start">
-          <div className="col-span-12 md:col-span-4 space-y-3">
-            <SmallLabel text={videoLabel} />
-            <p>{videoDesc}</p>
-            <ul className="mt-2 space-y-1">
+        <div className="border-t border-black/10 pt-12 mt-4" />
+        <div className="grid grid-cols-12 gap-8">
+          <div className="col-span-12 md:col-span-4 flex flex-col">
+            <div className="space-y-3">
+              <SmallLabel text={videoLabel} />
+              <p>{videoDesc}</p>
+            </div>
+            <ul className="mt-auto pt-6 space-y-1">
               {videoBrands.map((b) => (
                 <li key={b.name} className="text-black/40">
                   {b.href ? (
@@ -1859,7 +1862,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
 
       {/* ── 5 · Bank of America — caption centered above, full width ──── */}
       <section className="space-y-4">
-        <p className="text-center">{boaCaption}</p>
+        <p className="text-center font-bold">{boaCaption}</p>
         <Img src={boa} />
       </section>
 
@@ -1934,7 +1937,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       {/* ── 18+19 · McDonald's staggered side by side ────────────────── */}
       <section className="grid grid-cols-12 gap-8 items-center">
         <div className="col-span-5"><Img src={mcd1} /></div>
-        <div className="col-span-1" />
+        <div className="col-span-2" />
         <div className="col-span-4"><Img src={mcd2} /></div>
       </section>
 
@@ -1956,12 +1959,10 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
             <p>{es ? "Le pedimos a chicos de 48 países que enviaran su mayor grito a su equipo. Y lo hicieron 🥹" : "We asked kids from 48 countries to send their biggest cheer to their team. And they did 🥹"}</p>
           </div>
         </div>
-        {/* 7.1 · 3-image grid */}
-        <div className="grid grid-cols-3 gap-4">
-          <Img src={h21} />
-          <Img src={h22} />
-          <Img src={h23} />
-        </div>
+        {/* 7.1 · h21, then h22 full width, then h23 */}
+        <Img src={h21} />
+        <Img src={h22} />
+        <Img src={h23} />
         {/* 7.2 · h24 full width */}
         <Img src={h24} />
         {/* 7.3 · h25 (2/3) + h26 (1/3) */}
