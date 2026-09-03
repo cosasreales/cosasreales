@@ -1687,7 +1687,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
       {items.map((a) => (
         <li key={a.name} className="text-black/40">
           {a.href ? (
-            <a href={a.href} target="_blank" rel="noreferrer" className="underline hover:text-black/70 transition-colors">{a.name}</a>
+            <a href={a.href} target="_blank" rel="noreferrer" className="!underline hover:text-black/70 transition-colors">{a.name}</a>
           ) : (
             <span>{a.name}</span>
           )}
@@ -1839,7 +1839,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
               {videoBrands.map((b) => (
                 <li key={b.name} className="text-black/40">
                   {b.href ? (
-                    <a href={b.href} target="_blank" rel="noreferrer" className="underline hover:text-black/70 transition-colors">{b.name}</a>
+                    <a href={b.href} target="_blank" rel="noreferrer" className="!underline hover:text-black/70 transition-colors">{b.name}</a>
                   ) : b.name}
                 </li>
               ))}
