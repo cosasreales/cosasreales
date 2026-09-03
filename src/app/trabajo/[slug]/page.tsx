@@ -1831,7 +1831,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-4 flex flex-col">
             <div className="space-y-3">
-              <SmallLabel text={videoLabel} />
+              <p className="font-bold">{videoLabel}</p>
               <p>{videoDesc}</p>
             </div>
             <ul className="mt-auto pt-6 space-y-1">
