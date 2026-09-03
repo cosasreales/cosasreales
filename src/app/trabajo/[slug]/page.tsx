@@ -1483,7 +1483,7 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <p>
           We built a scalable framework — one process, multiplied by 20+
           brands, running simultaneously across a global team spread across
-          America (the continent) and Europe.
+          across the USA, LATAM and Europe.
         </p>
         <p className="mt-3">
           Before the tournament, we divided and conquered. During the
