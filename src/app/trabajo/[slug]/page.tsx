@@ -1373,19 +1373,16 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
   const mcd2  = wp("18.gif");
   const abn   = wp("19_Airbnb.gif");
   const h20   = wp("20_Hyundai.png");
-  const h21   = wp("21.png");
+  const h21   = wp("21_Hyundai.png");
   const h22   = wp("22_Hyundai.png");
-  const h23   = wp("23_Hyundai.png");
+  const h23   = wp("23_Hyundai.gif");
   const h24   = wp("24_Hyundai.png");
   const h25   = wp("25_Hyundai.png");
   const h26   = wp("26__Hyundai.gif");
   const resu  = wp("27_Results.gif");
 
   // ─── Assets — Extras subfolder ──────────────────────────────────────────
-  const partners      = wpE("Partners.png");
-  const hyWinners     = wpE("Hyundai.png");
-  const hyContestGif  = wpE("Hyundai.gif");
-  const fifa4x5       = `${CONTENT}/8_Work /${encodeURIComponent(item.folder)}/Extras/${encodeURIComponent("NEW_STILL ASSETS")}/${encodeURIComponent("Fifa_4x5_01_Variant A.png")}`;
+  const partners = wpE("Partners.png");
 
   const es = lang === "es";
 
@@ -1591,7 +1588,6 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
     </>
   );
 
-  const caption2 = es ? "Los artistas ganadores 🥹" : "The winning artists 🥹";
 
   const closingText = {
     es: (
@@ -1810,39 +1806,27 @@ function FifaLayout({ item, lang }: { item: WorkItem; lang: Lang }) {
         <Img src={abn} />
       </section>
 
-      {/* ── 20–26 · Hyundai — Be There contest ───────────────────────── */}
+      {/* ── 21–27 · Hyundai — Be There contest ───────────────────────── */}
       <section className="space-y-8">
         <p className="font-bold">{hyundaiHeader}</p>
         <Img src={h20} />
         <div className="grid grid-cols-3 gap-4">
+          <Img src={h21} />
           <Img src={h22} />
           <Img src={h23} />
-          <Img src={h21} />
         </div>
         <div className="grid grid-cols-12 gap-8 items-start">
-          <div className="col-span-12 md:col-span-7 grid grid-cols-[1.75fr_1fr] gap-4">
-            <Img src={hyContestGif} />
-            <Img src={fifa4x5} />
-          </div>
-          <div className="col-span-12 md:col-span-5">
+          <div className="col-span-12 md:col-span-5 space-y-4">
             {hyundaiBody[lang]}
+          </div>
+          <div className="col-span-12 md:col-span-7">
+            <Img src={h24} />
           </div>
         </div>
         <div className="flex gap-4 items-start">
-          <div style={{ flex: "2 1 0" }}>
-            <Img src={h24} />
-          </div>
-          <div className="flex flex-col gap-4" style={{ flex: "1 1 0" }}>
-            <Img src={h25} />
-            <Img src={h26} />
-          </div>
+          <div style={{ flex: "2 1 0" }}><Img src={h25} /></div>
+          <div style={{ flex: "1 1 0" }}><Img src={h26} /></div>
         </div>
-      </section>
-
-      {/* ── Winning artists ──────────────────────────────────────────── */}
-      <section className="space-y-4">
-        <p className="font-bold">{caption2}</p>
-        <Img src={hyWinners} />
       </section>
 
       {/* ── 27 · Results ─────────────────────────────────────────────── */}
